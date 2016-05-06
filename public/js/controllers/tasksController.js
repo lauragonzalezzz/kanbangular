@@ -6,6 +6,12 @@
 
     TaskService.getTasks().then(function(response) {
       $scope.tasks = response.data.tasks;
-    })
+    });
+
+    $scope.addTask = function (task) {
+      console.log(task, 'taskerson');
+       TaskService.addTask(task);
+    };
+
   }]);
 })();

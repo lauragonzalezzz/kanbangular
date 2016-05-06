@@ -9,12 +9,11 @@ const express    = require('express'),
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json({ type: 'application/*+json' }));
 
 app.get('/api/tasks', (req, res) => {
-  console.log('in the server');
   Tasks.findAll()
   .then((tasks) => {
-    // console.log(tasks)
     let tasksArr = [];
     tasks.forEach((eachTask) =>{
       tasksArr.push({
@@ -25,10 +24,21 @@ app.get('/api/tasks', (req, res) => {
         status: eachTask.status
       });
     });
-  res.json({tasks : tasksArr})
+  res.json({tasks : tasksArr});
   });
 });
 
+app.post('/api/tasks', (req, res) => {
+  // Tasks.create({
+  //   title: req.body.title,
+  //   description: req.body.description,
+  //   dueDate: req.body.dueDate,
+  //   priority: req.body.priority,
+  //   status: req.body.status
+  // });
+  console.log('poopie', req.body);
+  res.send('happy birthday');
+});
 
   db.sequelize.sync();
 app.listen(3000, () => {
