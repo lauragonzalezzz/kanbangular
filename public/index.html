@@ -31,7 +31,7 @@
     </div>
   </fieldset>
 
-  <div ng-controller= "tasksController.getTasks()">
+  <div ng-controller="tasksController">
     <div id="notStarted">
       <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'">
         <li>
