@@ -33,6 +33,7 @@
 
   <div ng-controller="tasksController">
     <div id="notStarted">
+      <h3>Not Started</h3>
       <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'">
         <li>
           <p>Title: {{ task.title }}</p>
@@ -42,6 +43,7 @@
         </li>
     </div>
     <div id="inProgress">
+      <h3>In Progress</h3>
       <ul ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'">
         <li>
           <p>Title: {{ task.title }}</p>
@@ -51,6 +53,7 @@
         </li>
     </div>
     <div id="completed">
+      <h3>Completed</h3>
       <ul ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'">
         <li>
           <p>Title: {{ task.title }}</p>
