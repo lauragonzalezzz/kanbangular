@@ -6,5 +6,5 @@
 
     $scope.TaskService = TaskService;
 
-  }])
-})
+  }]);
+});
