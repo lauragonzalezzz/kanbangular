@@ -9,6 +9,3 @@ angular.module('app', []);
 
     }]);
 
-    app.controller('myController', ['$scope', function ($scope) {
-      $scope.cinco = 'Feliz Cinco De Mayo!';
-    }]);

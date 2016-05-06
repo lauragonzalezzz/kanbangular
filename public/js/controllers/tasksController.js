@@ -10,7 +10,13 @@
 
     $scope.addTask = function (task) {
       TaskService.addTask(task).success(function (response) {
-        // console.log(response.data);
+         $scope.tasks = response.tasks;
+      });
+    };
+
+    $scope.saveTask = function (task) {
+      console.log(task, 'task');
+      TaskService.saveTask(task).success(function (response) {
          $scope.tasks = response.tasks;
       });
     };

@@ -36,36 +36,105 @@
     <div id="notStarted">
       <h3>Not Started</h3>
       <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'">
-        <li>
+        <li ng-hide="showme">
           <p>Title: {{ task.title }}</p>
           <p>Description: {{ task.description }}</p>
           <p>Due Date: {{ task.dueDate }}</p>
           <p>Priority: {{ task.priority }}</p>
         </li>
+
+        <li ng-show="showme">
+          <input type="hidden" id="id" ng-model="task.id">
+          <label for="title">Title:</label>
+          <input type="text" id="title" ng-model="task.title">
+          <br>
+          <label for="description">Description:</label>
+          <input type="text" id="description" ng-model="task.description">
+          <br>
+          <label for="dueDate">Due Date:</label>
+          <input type="text" id="dueDate" ng-model="task.dueDate">
+          <br>
+          <label for="priority">Priority:</label>
+          <input type="text" id="priority" ng-model="task.priority">
+          <br>
+          <label for="status">Status:</label>
+          <input type="text" id="status" ng-model="task.status">
+        </li>
+
+        <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
+        <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+      </ul>
     </div>
+
     <div id="inProgress">
       <h3>In Progress</h3>
       <ul ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'">
-        <li>
+        <li ng-hide="showme">
           <p>Title: {{ task.title }}</p>
           <p>Description: {{ task.description }}</p>
           <p>Due Date: {{ task.dueDate }}</p>
           <p>Priority: {{ task.priority }}</p>
         </li>
+
+        <li ng-show="showme">
+          <input type="hidden" id="id" ng-model="task.id">
+          <label for="title">Title:</label>
+          <input type="text" id="title" ng-model="task.title">
+          <br>
+          <label for="description">Description:</label>
+          <input type="text" id="description" ng-model="task.description">
+          <br>
+          <label for="dueDate">Due Date:</label>
+          <input type="text" id="dueDate" ng-model="task.dueDate">
+          <br>
+          <label for="priority">Priority:</label>
+          <input type="text" id="priority" ng-model="task.priority">
+          <br>
+          <label for="status">Status:</label>
+          <input type="text" id="status" ng-model="task.status">
+        </li>
+
+        <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
+        <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+      </ul>
     </div>
+
     <div id="completed">
       <h3>Completed</h3>
       <ul ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'">
-        <li>
+        <li ng-hide="showme">
           <p>Title: {{ task.title }}</p>
           <p>Description: {{ task.description }}</p>
           <p>Due Date: {{ task.dueDate }}</p>
           <p>Priority: {{ task.priority }}</p>
         </li>
+
+        <li ng-show="showme">
+          <input type="hidden" id="id" ng-model="task.id">
+          <label for="title">Title:</label>
+          <input type="text" id="title" ng-model="task.title">
+          <br>
+          <label for="description">Description:</label>
+          <input type="text" id="description" ng-model="task.description">
+          <br>
+          <label for="dueDate">Due Date:</label>
+          <input type="text" id="dueDate" ng-model="task.dueDate">
+          <br>
+          <label for="priority">Priority:</label>
+          <input type="text" id="priority" ng-model="task.priority">
+          <br>
+          <label for="status">Status:</label>
+          <input type="text" id="status" ng-model="task.status">
+        </li>
+
+        <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
+        <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+      </ul>
     </div>
   </div>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="text/javascript" src="/js/services.js"></script>
   <script type="text/javascript" src="/js/controllers/tasksController.js"></script>

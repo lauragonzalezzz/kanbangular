@@ -17,6 +17,7 @@ app.get('/api/tasks', (req, res) => {
     let tasksArr = [];
     tasks.forEach((eachTask) =>{
       tasksArr.push({
+        id: eachTask.id,
         title : eachTask.title,
         description : eachTask.description,
         dueDate : eachTask.dueDate,
@@ -51,11 +52,44 @@ app.post('/api/tasks', (req, res) => {
         });
       });
       res.json({tasks : tasks});
-    })
+    });
   });
 });
 
-  db.sequelize.sync();
+app.put('/api/tasks', (req, res) => {
+  console.log(req.body.title, 'bodify');
+  Tasks.update({
+    title: req.body.title,
+    description: req.body.description,
+    dueDate: req.body.dueDate,
+    priority: req.body.priority,
+    status: req.body.status
+   },
+   {
+    where: {
+      id: req.body.id
+   }
+ })
+  .then(function(){
+    Tasks.findAll()
+    .then((tasks) => {
+      console.log(tasks);
+      let tasksArr = [];
+      tasks.forEach((eachTask) =>{
+        tasksArr.push({
+          title : eachTask.title,
+          description : eachTask.description,
+          dueDate : eachTask.dueDate,
+          priority: eachTask.priority,
+          status: eachTask.status
+        });
+      });
+      res.json({tasks : tasks});
+    });
+  });
+});
+
+db.sequelize.sync();
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });
