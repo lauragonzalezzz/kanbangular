@@ -26,10 +26,10 @@ app.get('/api/notstarted', (req, res) => {
       }
     })
   })
-  .catch(error){
-    console.log(error);
-    return res.send(error);
-  }
+  // .catch(error){
+  //   console.log(error);
+  //   return res.send(error);
+  // }
 })
 
 app.get('/api/inprogress', (req, res) => {
@@ -48,10 +48,10 @@ app.get('/api/inprogress', (req, res) => {
       }
     })
   })
-  .catch(error){
-    console.log(error);
-    return res.send(error);
-  }
+  // .catch(error){
+  //   console.log(error);
+  //   return res.send(error);
+  // }
 })
 
 app.get('/api/completed', (req, res) => {
@@ -70,10 +70,10 @@ app.get('/api/completed', (req, res) => {
       }
     })
   })
-  .catch(error){
-    console.log(error);
-    return res.send(error);
-  }
+  // .catch(error){
+  //   console.log(error);
+  //   return res.send(error);
+  // }
 })
 
 app.listen(3000, () => {
