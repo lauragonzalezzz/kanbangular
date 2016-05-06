@@ -9,8 +9,10 @@
     });
 
     $scope.addTask = function (task) {
-      console.log(task, 'taskerson');
-       TaskService.addTask(task);
+      TaskService.addTask(task).success(function (response) {
+        // console.log(response.data);
+         $scope.tasks = response.tasks;
+      });
     };
 
   }]);
