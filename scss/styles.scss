@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'fabfeltscriptbold';
-    src: url('fabfeltscript-bold.eot');
-    src: url('fabfeltscript-bold.eot?#iefix') format('embedded-opentype'),
-         url('fabfeltscript-bold.woff2') format('woff2'),
-         url('fabfeltscript-bold.woff') format('woff'),
-         url('fabfeltscript-bold.ttf') format('truetype'),
-         url('fabfeltscript-bold.svg#fabfeltscriptbold') format('svg');
+    src: url('/fonts/webfont/fabfeltscript-bold.eot');
+    src: url('/fonts/webfont/fabfeltscript-bold.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/webfont/fabfeltscript-bold.woff2') format('woff2'),
+         url('/fonts/webfont/fabfeltscript-bold.woff') format('woff'),
+         url('/fonts/webfont/fabfeltscript-bold.ttf') format('truetype'),
+         url('/fonts/webfont/fabfeltscript-bold.svg#fabfeltscriptbold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -15,12 +15,23 @@ body{
 }
 
 header{
- height: 75px;
- background-color: #CCCCCC;
+ height: 90px;
+ background-color: #FFF;
  display: block;
- padding: 5px;
- color: #F79B2E;
+ color: #fff;
  font-family: 'fabfeltscriptbold';
+ font-size: 25px;
+ text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+ letter-spacing: 1px;
+}
+
+#mainHeading{
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(247,155,46, 0.7);
+  width: 300px;
+  height: 85px;
 }
 
 #tcontrol{
@@ -30,6 +41,8 @@ header{
 }
 
 #addNew{
+  margin-top: 20px;
+  margin-bottom: 5px;
   display: flex;
   flex-flow: row wrap;
 }
@@ -42,18 +55,21 @@ header{
 }
 
 #notStarted{
+  width: 300px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #fff;
 }
 
 #inProgress{
+  width: 300px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #fff;
 }
 
 #completed{
+  width: 300px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #fff;
