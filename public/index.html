@@ -35,7 +35,7 @@
 
     <div id="notStarted">
       <h3>Not Started</h3>
-      <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'">
+      <ul id="task.id" ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'">
         <li ng-hide="showme">
           <p>Title: {{ task.title }}</p>
           <p>Description: {{ task.description }}</p>
