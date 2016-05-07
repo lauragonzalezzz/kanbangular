@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'fabfeltscriptbold';
+  src: url("fabfeltscript-bold.eot");
+  src: url("fabfeltscript-bold.eot?#iefix") format("embedded-opentype"), url("fabfeltscript-bold.woff2") format("woff2"), url("fabfeltscript-bold.woff") format("woff"), url("fabfeltscript-bold.ttf") format("truetype"), url("fabfeltscript-bold.svg#fabfeltscriptbold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 body {
   background-color: #EFEFEF; }
 
@@ -6,7 +13,8 @@ header {
   background-color: #CCCCCC;
   display: block;
   padding: 5px;
-  color: #F79B2E; }
+  color: #F79B2E;
+  font-family: 'fabfeltscriptbold'; }
 
 #tcontrol {
   display: flex;
@@ -21,9 +29,8 @@ header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  align-items: center; }
+  align-items: top; }
 
-<<<<<<< HEAD
 #notStarted {
   padding-left: 10px;
   padding-right: 10px;
@@ -42,4 +49,3 @@ header {
 #task {
   border: 1px solid black;
   padding-bottom: 10px; }
-

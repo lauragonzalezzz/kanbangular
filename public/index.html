@@ -81,7 +81,7 @@
         <div id="inProgress"> <!-- Starts In Progress Section -->
           <h3>In Progress</h3>
           <div ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'" id="{{ $index }}" ui-on-Drop="onDrop($event,$data)" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index,task)">
-          <ul dragula="'status-bag'">
+          <ul dragula="'status-bag'" id="task">
             <li ng-hide="showme">
               <p>Title: {{ task.title }}</p>
               <p>Description: {{ task.description }}</p>
