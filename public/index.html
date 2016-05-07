@@ -7,6 +7,7 @@
 <body ng-app= "app">
   <h1>KANBANGULAR</h1>
   <div ng-controller="tasksController">
+  <form ng-show="show">
     <fieldset>
       <div>
         <label for="Title">Task Title:</label>
@@ -26,12 +27,14 @@
       </div>
       <div>
         <label for="Status">Status:</label>
-        <input type="text" id="Status" ng-model="newTask.status">
+        <input type="text" id="Status" ng-model="newTask.status" >
       </div>
       <div>
-        <button type="button" ng-click="addTask(newTask)">Add Task</button>
+        <button type="button" ng-click="show=false; addTask(newTask)">Submit</button>
       </div>
     </fieldset>
+    </form>
+    <button type="button" ng-click="show=true" ng-hide="show">Add Task</button>
 
     <div id="notStarted">
       <h3>Not Started</h3>
