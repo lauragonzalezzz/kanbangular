@@ -47,14 +47,14 @@
       <div id="board">
         <div id="notStarted" dragula="'status-bag'"> <!-- Starts Not Started Section -->
           <h3>Not Started</h3>
-          <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'" >
-            <li ng-hide="showme">
+          <div id="CARD" ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'">
+            <div ng-hide="showme">
               <p>Title: {{ task.title }}</p>
               <p>Description: {{ task.description }}</p>
               <p>Due Date: {{ task.dueDate }}</p>
               <p>Priority: {{ task.priority }}</p>
               <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
-            </li>
+            </div>
             <!-- Hidden Edit Form -->
             <form ng-show="showme">
               <input type="hidden" id="{{ $index }}" ng-model="task.id">
@@ -74,23 +74,22 @@
             </form>
             <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
             <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
-          </ul>
-        </div>
+          </div> <!-- card -->
+        </div> <!-- notstarted -->
 
 
-        <div id="inProgress"> <!-- Starts In Progress Section -->
-          <h3>In Progress</h3>
-          <div ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'" id="{{ $index }}" ui-on-Drop="onDrop($event,$data)" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index,task)">
-          <ul dragula="'status-bag'">
-            <li ng-hide="showme">
+        <div id="inProgress" dragula="'status-bag'"> <!-- Starts Not Started Section -->
+          <h3>Not Started</h3>
+          <div id="CARD" ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'">
+            <div ng-hide="showme">
               <p>Title: {{ task.title }}</p>
               <p>Description: {{ task.description }}</p>
               <p>Due Date: {{ task.dueDate }}</p>
               <p>Priority: {{ task.priority }}</p>
               <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
-            </li>
+            </div>
             <!-- Hidden Edit Form -->
-            <li ng-show="showme">
+            <form ng-show="showme">
               <input type="hidden" id="{{ $index }}" ng-model="task.id">
               <label for="title">Title:</label>
               <input type="text" id="title" ng-model="task.title">
@@ -105,26 +104,25 @@
               <input type="text" id="priority" ng-model="task.priority">
               <br>
               <input type="hidden" id="status" ng-model="task.status">
-            </li>
-
+            </form>
             <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
             <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
-          </ul>
-          </div>
-        </div> <!-- Ends In Progress Section -->
+          </div> <!-- card -->
+        </div> <!-- notstarted -->
 
-        <div id="completed" dragula="'status-bag'"> <!-- Starts Completed Section -->
-          <h3>Completed</h3>
-          <ul ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'" id="{{ $index }}" ui-on-Drop="onDrop($event,$data)" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index,task)">
-            <li ng-hide="showme">
+
+        <div id="completed" dragula="'status-bag'"> <!-- Starts Not Started Section -->
+          <h3>Not Started</h3>
+          <div id="CARD" ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'">
+            <div ng-hide="showme">
               <p>Title: {{ task.title }}</p>
               <p>Description: {{ task.description }}</p>
               <p>Due Date: {{ task.dueDate }}</p>
               <p>Priority: {{ task.priority }}</p>
               <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
-            </li>
-           <!-- Hidden Edit Form -->
-            <li ng-show="showme">
+            </div>
+            <!-- Hidden Edit Form -->
+            <form ng-show="showme">
               <input type="hidden" id="{{ $index }}" ng-model="task.id">
               <label for="title">Title:</label>
               <input type="text" id="title" ng-model="task.title">
@@ -139,12 +137,12 @@
               <input type="text" id="priority" ng-model="task.priority">
               <br>
               <input type="hidden" id="status" ng-model="task.status">
-            </li>
-
+            </form>
             <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
             <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
-          </ul>
-        </div> <!-- Ends Completed Section -->
+          </div> <!-- card -->
+        </div> <!-- notstarted -->
+
       </div> <!-- Ends Board -->
     </div> <!-- Ends Controller -->
   </div> <!-- Ends Main -->
