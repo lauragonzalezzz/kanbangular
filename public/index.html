@@ -79,7 +79,7 @@
 
 
         <div id="inProgress" dragula="'status-bag'"> <!-- Starts Not Started Section -->
-          <h3>Not Started</h3>
+          <h3>In Progress</h3>
           <div class="CARD" ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'">
             <div ng-hide="showme">
               <p>Title: {{ task.title }}</p>
@@ -112,7 +112,7 @@
 
 
         <div id="completed" dragula="'status-bag'"> <!-- Starts Not Started Section -->
-          <h3>Not Started</h3>
+          <h3>Completed</h3>
           <div class="CARD" ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'">
             <div ng-hide="showme">
               <p>Title: {{ task.title }}</p>
