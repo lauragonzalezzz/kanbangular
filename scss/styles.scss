@@ -55,27 +55,31 @@ header{
 }
 
 #notStarted{
-  width: 300px;
+  width: 350px;
+  height: 800px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #fff;
+  justify-content: center;
 }
 
 #inProgress{
-  width: 300px;
+  width: 350px;
+  height: 800px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #fff;
 }
 
 #completed{
-  width: 300px;
+  width: 350px;
+  height: 800px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #fff;
 }
 
 .CARD{
-  border: 1px solid black;
-  padding-bottom: 10px;
+  width: 325px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
