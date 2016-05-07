@@ -1,4 +1,4 @@
-angular.module('app', ['ang-drag-drop']);
+angular.module('app', []);
 
   var app = angular.module('app');
 

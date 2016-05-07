@@ -8,7 +8,7 @@
 
 <body ng-app= "app">
   <div class="main">
-    <header ui-on-Drop="onDrop($event,$data, tasks)" on-drop-success="dropSuccessHandler($event,$index,tasks)">
+    <header>
       <h1>KANBANGULAR</h1>
     </header>
     <div ng-controller="tasksController">
@@ -46,7 +46,7 @@
       <div id="board">
         <div id="notStarted"> <!-- Starts Not Started Section -->
           <h3>Not Started</h3>
-          <ul ng-repeat="task in tasks" id="{{ $index }}" ui-on-Drop="onDrop($event,$data, tasks)" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index,tasks)">
+          <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'" id="task">
             <li ng-hide="showme">
               <p>Title: {{ task.title }}</p>
               <p>Description: {{ task.description }}</p>
@@ -79,7 +79,7 @@
 
         <div id="inProgress"> <!-- Starts In Progress Section -->
           <h3>In Progress</h3>
-          <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'" id="{{ $index }}" ui-on-Drop="onDrop($event,$data)" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index,task)">
+          <ul ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'" id="task">
             <li ng-hide="showme">
               <p>Title: {{ task.title }}</p>
               <p>Description: {{ task.description }}</p>
@@ -112,7 +112,7 @@
 
         <div id="completed"> <!-- Starts Completed Section -->
           <h3>Completed</h3>
-          <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'" id="{{ $index }}" ui-on-Drop="onDrop($event,$data)" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index,task)">
+          <ul ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'" id="task">
             <li ng-hide="showme">
               <p>Title: {{ task.title }}</p>
               <p>Description: {{ task.description }}</p>

@@ -26,16 +26,5 @@
       });
     };
 
-  //Drag and Drop functionality
-    $scope.dropSuccessHandler = function($event,index,array){
-      console.log('$event', $event)
-      array.splice(index,1);
-    };
-
-    $scope.onDrop = function($event,$data,array){
-      console.log('$data',$data);
-      array.push($data);
-    };
-
   }]);
 })();

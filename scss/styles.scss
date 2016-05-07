@@ -1,6 +1,13 @@
+body{
+  background-color: #EFEFEF;
+}
 
-#header{
+header{
+ height: 75px;
+ background-color: #CCCCCC;
  display: block;
+ padding: 5px;
+ color: #F79B2E;
 }
 
 #tcontrol{
@@ -21,12 +28,25 @@
   align-items: center;
 }
 
-.on-drag-enter{
-  background-color: #aaaaaa;
+#notStarted{
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff;
 }
-.on-drag-hover:before{
-  content: "Do Shit";
-  display: block;
-  color: white;
-  font-size: x-large;
+
+#inProgress{
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff;
+}
+
+#completed{
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff;
+}
+
+#task{
+  border: 1px solid black;
+  padding-bottom: 10px;
 }

@@ -1,5 +1,12 @@
-#header {
-  display: block; }
+body {
+  background-color: #EFEFEF; }
+
+header {
+  height: 75px;
+  background-color: #CCCCCC;
+  display: block;
+  padding: 5px;
+  color: #F79B2E; }
 
 #tcontrol {
   display: flex;
@@ -15,3 +22,22 @@
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center; }
+
+#notStarted {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff; }
+
+#inProgress {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff; }
+
+#completed {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff; }
+
+#task {
+  border: 1px solid black;
+  padding-bottom: 10px; }
