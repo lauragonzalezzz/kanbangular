@@ -23,6 +23,7 @@ header {
   justify-content: space-around;
   align-items: center; }
 
+<<<<<<< HEAD
 #notStarted {
   padding-left: 10px;
   padding-right: 10px;
@@ -41,3 +42,4 @@ header {
 #task {
   border: 1px solid black;
   padding-bottom: 10px; }
+
