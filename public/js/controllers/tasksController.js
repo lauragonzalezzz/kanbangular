@@ -2,7 +2,7 @@
 
 (function(){
   angular.module('app')
-  .controller('tasksController', ['$scope', 'TaskService', function($scope, TaskService){
+  .controller('tasksController', ['$scope', 'TaskService', 'dragulaService', function($scope, TaskService, dragulaService){
     TaskService.getTasks().then(function(response) {
       $scope.tasks = response.data.tasks;
       console.log($scope.tasks);
@@ -27,12 +27,19 @@
     };
 
   //Drag and Drop functionality
-    // $scope
-    // .$on('status-bag.drop', function(err, el, target, source, sibling){
-    //   console.log('hello?');
-    //   //change task status (el)
-    // })
-    // .$on('status-bag.drag')
+    $scope
+      .$on('status-bag.drop', function(error, element){
+        var status = element[0].parentNode.id;
+        console.log(status);
+        // var titleElement = element[0].querySelectorAll('p')[0];
+        // index = titleElement.indexOf('Title: ')
+        // console.log(titleElement);
+
+        // TaskService.updateStatus(element).success(function (response){
+        //   $scope.tasks = reponse.tasks;
+        // });
+      });
+
 
   }]);
 })();
