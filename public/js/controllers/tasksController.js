@@ -15,10 +15,16 @@
     };
 
     $scope.saveTask = function (task) {
-      console.log(task, 'task');
       TaskService.saveTask(task).success(function (response) {
          $scope.tasks = response.tasks;
       });
+    };
+
+    $scope.deleteTask = function(task){
+      TaskService.deleteTask(task).success(function(response){
+        $scope.tasks = response.tasks;
+      });
+      // console.log('TaskService.deleteTask(task)',TaskService.deleteTask(task));
     };
 
   }]);
