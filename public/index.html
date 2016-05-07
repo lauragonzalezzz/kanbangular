@@ -7,38 +7,40 @@
 </head>
 
 <body ng-app= "app">
-  <header id="header">
-    <h1>KANBANGULAR</h1>
-  </header>
-
   <div class="main">
-    <div id="tcontrol" ng-controller="tasksController">
+    <header>
+      <h1>KANBANGULAR</h1>
+    </header>
+    <div ng-controller="tasksController">
       <div id="addNew">
-        <fieldset>
-          <div>
-            <label for="Title">Task Title:</label>
-            <input type="text" id="Title" ng-model="newTask.title">
-          </div>
-          <div>
-            <label for="Description">Description:</label>
-            <input type="text" id="Description" ng-model="newTask.description">
-          </div>
-          <div>
-            <label for="dueDate">Due Date:</label>
-            <input type="text" id="dueDate" ng-model="newTask.dueDate">
-          </div>
-          <div>
-            <label for="Priority">Priority</label>
-            <input type="text" id="Priority" ng-model="newTask.priority">
-          </div>
-          <div>
-            <label for="Status">Status:</label>
-            <input type="text" id="Status" ng-model="newTask.status">
-          </div>
-          <div>
-            <button type="button" ng-click="addTask(newTask)">Add Task</button>
-          </div>
-        </fieldset>
+        <form ng-show="show">
+          <fieldset>
+            <div>
+              <label for="Title">Task Title:</label>
+              <input type="text" id="Title" ng-model="newTask.title">
+            </div>
+            <div>
+              <label for="Description">Description:</label>
+              <input type="text" id="Description" ng-model="newTask.description">
+            </div>
+            <div>
+              <label for="dueDate">Due Date:</label>
+              <input type="text" id="dueDate" ng-model="newTask.dueDate">
+            </div>
+            <div>
+              <label for="Priority">Priority</label>
+              <input type="text" id="Priority" ng-model="newTask.priority">
+            </div>
+            <div>
+              <label for="Status">Status:</label>
+              <input type="text" id="Status" ng-model="newTask.status" >
+            </div>
+            <div>
+              <button type="button" ng-click="show=false; addTask(newTask)">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+        <button type="button" ng-click="show=true" ng-hide="show">Add Task</button>
       </div>
 
       <div id="board">
