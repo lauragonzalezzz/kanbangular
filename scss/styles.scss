@@ -20,3 +20,13 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.on-drag-enter{
+  background-color: #aaaaaa;
+}
+.on-drag-hover:before{
+  content: "Do Shit";
+  display: block;
+  color: white;
+  font-size: x-large;
+}
