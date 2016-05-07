@@ -3,13 +3,13 @@ module.exports = function(sequelize, DataTypes) {
   var Task = sequelize.define('Task', {
     title: DataTypes.STRING,
     description: DataTypes.STRING,
-    dueDate: DataTypes.DATE,
+    dueDate: DataTypes.STRING,
     priority: DataTypes.INTEGER,
     status: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        Task.belongsTo(models.User);
       }
     }
   });

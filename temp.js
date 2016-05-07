@@ -9,7 +9,7 @@ module.exports = {
       priority: 1,
       status: 'inprogress',
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
      },
      {
       title: 'liempa el techo',

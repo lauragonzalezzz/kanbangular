@@ -6,6 +6,7 @@
 
     TaskService.getTasks().then(function(response) {
       $scope.tasks = response.data.tasks;
+      console.log($scope.tasks);
     });
 
     $scope.addTask = function (task) {
