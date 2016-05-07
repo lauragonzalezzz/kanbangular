@@ -43,7 +43,7 @@
           <p>Priority: {{ task.priority }}</p>
         </li>
 
-        <li ng-show="showme">
+        <form ng-show="showme">
           <input type="hidden" id="id" ng-model="task.id">
           <label for="title">Title:</label>
           <input type="text" id="title" ng-model="task.title">
@@ -57,9 +57,8 @@
           <label for="priority">Priority:</label>
           <input type="text" id="priority" ng-model="task.priority">
           <br>
-          <label for="status">Status:</label>
-          <input type="text" id="status" ng-model="task.status">
-        </li>
+          <input type="hidden" id="status" ng-model="task.status">
+        </form>
 
         <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
         <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
@@ -90,8 +89,7 @@
           <label for="priority">Priority:</label>
           <input type="text" id="priority" ng-model="task.priority">
           <br>
-          <label for="status">Status:</label>
-          <input type="text" id="status" ng-model="task.status">
+          <input type="hidden" id="status" ng-model="task.status">
         </li>
 
         <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
@@ -123,8 +121,7 @@
           <label for="priority">Priority:</label>
           <input type="text" id="priority" ng-model="task.priority">
           <br>
-          <label for="status">Status:</label>
-          <input type="text" id="status" ng-model="task.status">
+          <input type="hidden" id="status" ng-model="task.status">
         </li>
 
         <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
