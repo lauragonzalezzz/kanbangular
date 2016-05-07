@@ -40,7 +40,6 @@ app.post('/api/tasks', (req, res) => {
   .then(function(){
     Tasks.findAll()
     .then((tasks) => {
-      console.log(tasks);
       let tasksArr = [];
       tasks.forEach((eachTask) =>{
         tasksArr.push({
@@ -57,7 +56,6 @@ app.post('/api/tasks', (req, res) => {
 });
 
 app.put('/api/tasks', (req, res) => {
-  console.log(req.body.title, 'bodify');
   Tasks.update({
     title: req.body.title,
     description: req.body.description,
@@ -73,7 +71,6 @@ app.put('/api/tasks', (req, res) => {
   .then(function(){
     Tasks.findAll()
     .then((tasks) => {
-      console.log(tasks);
       let tasksArr = [];
       tasks.forEach((eachTask) =>{
         tasksArr.push({
@@ -87,6 +84,32 @@ app.put('/api/tasks', (req, res) => {
       res.json({tasks : tasks});
     });
   });
+});
+
+app.delete('/api/tasks', (req, res) => {
+  console.log(req.body.id);
+  Tasks.destroy({
+    where: {
+      id : req.body.id
+    }
+  })
+  .then(function(){
+    console.log('hello');
+    Tasks.findAll()
+    .then((tasks) => {
+      let tasksArr = [];
+      tasks.forEach((eachTask) =>{
+        tasksArr.push({
+          title : eachTask.title,
+          description : eachTask.description,
+          dueDate : eachTask.dueDate,
+          priority: eachTask.priority,
+          status: eachTask.status
+        });
+      });
+      res.json({tasks : tasksArr});
+    });
+  })
 });
 
 db.sequelize.sync();
