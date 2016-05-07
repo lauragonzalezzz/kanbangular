@@ -1,4 +1,4 @@
-angular.module('app', []);
+angular.module('app', [angularDragula(angular)]);
 
   var app = angular.module('app');
 

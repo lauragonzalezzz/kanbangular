@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Kanbangular</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/dragula.min.css">
 </head>
 
 <body ng-app= "app">
@@ -44,7 +45,7 @@
       </div>
 
       <div id="board">
-        <div id="notStarted"> <!-- Starts Not Started Section -->
+        <div id="notStarted" dragula="'status-bag'"> <!-- Starts Not Started Section -->
           <h3>Not Started</h3>
           <ul ng-repeat="task in tasks | filter:status='notstarted' | orderBy: 'priority'" id="task">
             <li ng-hide="showme">
@@ -52,6 +53,7 @@
               <p>Description: {{ task.description }}</p>
               <p>Due Date: {{ task.dueDate }}</p>
               <p>Priority: {{ task.priority }}</p>
+              <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
             </li>
             <!-- Hidden Edit Form -->
             <form ng-show="showme">
@@ -70,7 +72,6 @@
               <br>
               <input type="hidden" id="status" ng-model="task.status">
             </form>
-            <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
             <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
             <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
           </ul>
@@ -79,12 +80,14 @@
 
         <div id="inProgress"> <!-- Starts In Progress Section -->
           <h3>In Progress</h3>
-          <ul ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'" id="task">
+          <div ng-repeat="task in tasks | filter:status='inprogress' | orderBy: 'priority'" id="{{ $index }}" ui-on-Drop="onDrop($event,$data)" ui-draggable="true" drag="task" on-drop-success="dropSuccessHandler($event,$index,task)">
+          <ul dragula="'status-bag'">
             <li ng-hide="showme">
               <p>Title: {{ task.title }}</p>
               <p>Description: {{ task.description }}</p>
               <p>Due Date: {{ task.dueDate }}</p>
               <p>Priority: {{ task.priority }}</p>
+              <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
             </li>
             <!-- Hidden Edit Form -->
             <li ng-show="showme">
@@ -104,13 +107,13 @@
               <input type="hidden" id="status" ng-model="task.status">
             </li>
 
-            <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
             <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
             <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
           </ul>
+          </div>
         </div> <!-- Ends In Progress Section -->
 
-        <div id="completed"> <!-- Starts Completed Section -->
+        <div id="completed" dragula="'status-bag'"> <!-- Starts Completed Section -->
           <h3>Completed</h3>
           <ul ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'" id="task">
             <li ng-hide="showme">
@@ -118,6 +121,7 @@
               <p>Description: {{ task.description }}</p>
               <p>Due Date: {{ task.dueDate }}</p>
               <p>Priority: {{ task.priority }}</p>
+              <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
             </li>
            <!-- Hidden Edit Form -->
             <li ng-show="showme">
@@ -137,7 +141,6 @@
               <input type="hidden" id="status" ng-model="task.status">
             </li>
 
-            <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
             <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
             <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
           </ul>
@@ -149,7 +152,7 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
-  <script src="/lib/draganddrop.min.js"></script>
+  <script type="text/javascript" src="/js/dragula.js"></script>
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="text/javascript" src="/js/services.js"></script>
   <script type="text/javascript" src="/js/controllers/tasksController.js"></script>

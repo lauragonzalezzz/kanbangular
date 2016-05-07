@@ -26,5 +26,13 @@
       });
     };
 
+  //Drag and Drop functionality
+    // $scope
+    // .$on('status-bag.drop', function(err, el, target, source, sibling){
+    //   console.log('hello?');
+    //   //change task status (el)
+    // })
+    // .$on('status-bag.drag')
+
   }]);
 })();
