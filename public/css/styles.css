@@ -1,8 +1,7 @@
 #header {
-  border: 1px;
-  border-color: black; }
+  display: block; }
 
-.ng-scope {
+#tcontrol {
   display: flex;
   flex-flow: column nowrap;
   width: 300px; }
