@@ -1,0 +1,18 @@
+#header {
+  border: 1px;
+  border-color: black; }
+
+.ng-scope {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 300px; }
+
+#addNew {
+  display: flex;
+  flex-flow: row wrap; }
+
+#board {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center; }
