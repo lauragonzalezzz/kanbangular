@@ -1,15 +1,58 @@
 'use strict';
 
-const express    = require('express'),
-      app        = express(),
-      bodyParser = require('body-parser'),
-      path       = require('path'),
-      db         = require('./models'),
-      Tasks       = db.Task;
+const express       = require('express'),
+      app           = express(),
+      bodyParser    = require('body-parser'),
+      path          = require('path'),
+      db            = require('./models'),
+      Tasks         = db.Task,
+      Users         = db.User,
+      passport      = require('passport'),
+      LocalStrategy = require('passport-local').Strategy,
+      session       = require('express-session'),
+      CONFIG        = require('./config/config.json');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json({ type: 'application/json' }));
+app.use(session({
+  resave: true,
+  saveUninitialized : true,
+  secret : CONFIG.Session.secret
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(
+  (username, password, done) => {
+    User.findOne({
+      where : {username : username, password : password }
+    })
+    .then((User) => {
+      if (User === null) {
+        return done(null, false)
+      }
+      let USERNAME = User.username;
+      let PASSWORD = User.password;
+      if (!(username === USERNAME && password === PASSWORD)) {
+        return done(null, false)
+      }
+      let user = {
+        username : USERNAME
+      };
+      return done(null, user);
+    })
+    .catch((error) => {
+      throw new Error (error)
+    });
+  }
+));
+
+passport.serializeUser((user, done) => {
+  return done(null, user);
+});
+passport.deserializeUser((user, done) => {
+  return done(null, user);
+});
 
 app.get('/api/tasks', (req, res) => {
   Tasks.findAll()
@@ -28,6 +71,12 @@ app.get('/api/tasks', (req, res) => {
   res.json({tasks : tasksArr});
   });
 });
+
+app.get('/logout', (req, res) => {
+  req.logout();
+  console.log('Logging out');
+  res.redirect('/');
+})
 
 app.post('/api/tasks', (req, res) => {
   Tasks.create({
@@ -54,6 +103,30 @@ app.post('/api/tasks', (req, res) => {
     });
   });
 });
+
+function isAuthenticated(req,res,next){
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  return res.send(401);
+}
+
+app.post('/login', (req, res) => {
+  passport.authenticate('local'), function(req, res){
+    return res.json(req.user);
+  };
+});
+
+app.post('/register', (req, res) => {
+  User.create({
+    username : req.body.username,
+    password : req.body.password
+  })
+  .then((user) => {
+    return res.json(user);
+  })
+  .catch(error);
+})
 
 app.put('/api/tasks', (req, res) => {
   Tasks.update({
