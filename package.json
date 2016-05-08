@@ -22,6 +22,8 @@
     "dragula": "^3.6.8",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.22.0"
