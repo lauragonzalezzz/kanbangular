@@ -118,14 +118,13 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-    console.log(req.body.userName);
-  // Users.create({
-  //   userName : req.body.username,
-  //   password : req.body.password
-  // })
-  // .then((user) => {
-  //   return res.json(user);
-  // })
+  Users.create({
+    userName : req.body.userName,
+    password : req.body.password
+  })
+  .then((user) => {
+    return res.json(user);
+  })
 })
 
 app.put('/api/tasks', (req, res) => {
