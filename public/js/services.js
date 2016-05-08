@@ -27,5 +27,23 @@
         return $http.put('/api/status', updateObj);
       }
 
-    }]);
+    }]) //end taskservice
+
+    .service('LoginService', ['$http', function($http){
+
+      this.logout = function(){
+        return $http.get('/logout');
+      };
+
+      this.login = function(user){
+        return $http.post('/login', user);
+      };
+
+      this.register = function(newUser){
+        return $http.post('/register', newUser);
+      };
+
+
+    }]) //ends loginservice
+
 })();
