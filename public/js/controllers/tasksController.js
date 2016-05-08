@@ -3,6 +3,7 @@
 (function(){
   angular.module('app')
   .controller('tasksController', ['$scope', 'TaskService', 'dragulaService', function($scope, TaskService, dragulaService){
+
     TaskService.getTasks().then(function(response) {
       $scope.tasks = response.data.tasks;
     });
@@ -25,6 +26,7 @@
       });
     };
 
+
   //Drag and Drop functionality
     $scope
       .$on('status-bag.drop', function(error, element){
@@ -43,6 +45,6 @@
         });
       });
 
+  }])
 
-  }]);
 })();
