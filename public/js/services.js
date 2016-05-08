@@ -23,9 +23,9 @@
         });
       };
 
-      // this.updateStatus = function(task){
-      //   return $http.put('/api/status', task);
-      // }
+      this.updateStatus = function(updateObj){
+        return $http.put('/api/status', updateObj);
+      }
 
     }]);
 })();
