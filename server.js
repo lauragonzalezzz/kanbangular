@@ -24,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(
   (username, password, done) => {
+    console.log('hey sean!')
     User.findOne({
       where : {username : username, password : password }
     })
@@ -112,9 +113,11 @@ function isAuthenticated(req,res,next){
 }
 
 app.post('/login', (req, res) => {
-  passport.authenticate('local'), function(req, res){
-    return res.json(req.user);
-  };
+  console.log('hello?');
+  return passport.authenticate('local'), {
+    successRedirect: '/',
+    failureRedirect: '/'
+  }
 });
 
 app.post('/register', (req, res) => {
