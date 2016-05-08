@@ -86,8 +86,34 @@ app.put('/api/tasks', (req, res) => {
   });
 });
 
+app.put('/api/status', (req, res) => {
+    console.log('inside put server')
+  Tasks.update({
+    status : req.body.newStatus
+  }, {
+    where : {
+      title : req.body.title
+    }
+  })
+  .then(function(){
+    Tasks.findAll()
+    .then((tasks) => {
+      let tasksArr = [];
+      tasks.forEach((eachTask) =>{
+        tasksArr.push({
+          title : eachTask.title,
+          description : eachTask.description,
+          dueDate : eachTask.dueDate,
+          priority: eachTask.priority,
+          status: eachTask.status
+        });
+      });
+      res.json({tasks : tasks});
+    });
+  });
+});
+
 app.delete('/api/tasks', (req, res) => {
-  console.log(req.body.id);
   Tasks.destroy({
     where: {
       id : req.body.id
