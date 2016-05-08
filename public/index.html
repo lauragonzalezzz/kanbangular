@@ -45,103 +45,107 @@
       </div>
 
       <div id="board">
-        <div id="notStarted" dragula="'status-bag'"> <!-- Starts Not Started Section -->
+        <div>
           <h3>Not Started</h3>
-          <div class="CARD" ng-repeat="task in tasks | filter:status='notStarted' | orderBy: 'priority'">
-            <div class="INFO" ng-hide="showme">
-              <p>Title: {{ task.title }}</p>
-              <p>Description: {{ task.description }}</p>
-              <p>Due Date: {{ task.dueDate }}</p>
-              <p>Priority: {{ task.priority }}</p>
-              <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
-            </div>
-            <!-- Hidden Edit Form -->
-            <form ng-show="showme">
-              <input type="hidden" id="{{ $index }}" ng-model="task.id">
-              <label for="title">Title:</label>
-              <input type="text" id="title" ng-model="task.title">
-              <br>
-              <label for="description">Description:</label>
-              <input type="text" id="description" ng-model="task.description">
-              <br>
-              <label for="dueDate">Due Date:</label>
-              <input type="text" id="dueDate" ng-model="task.dueDate">
-              <br>
-              <label for="priority">Priority:</label>
-              <input type="text" id="priority" ng-model="task.priority">
-              <br>
-              <input type="hidden" id="status" ng-model="task.status">
-            </form>
-            <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
-            <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
-          </div> <!-- card -->
-        </div> <!-- notstarted -->
+          <div id="notStarted" dragula="'status-bag'"> <!-- Starts Not Started Section -->
+            <div class="CARD" ng-repeat="task in tasks | filter:status='notStarted' | orderBy: 'priority'">
+              <div class="INFO" ng-hide="showme">
+                <p>Title: {{ task.title }}</p>
+                <p>Description: {{ task.description }}</p>
+                <p>Due Date: {{ task.dueDate }}</p>
+                <p>Priority: {{ task.priority }}</p>
+                <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
+              </div>
+              <!-- Hidden Edit Form -->
+              <form ng-show="showme">
+                <input type="hidden" id="{{ $index }}" ng-model="task.id">
+                <label for="title">Title:</label>
+                <input type="text" id="title" ng-model="task.title">
+                <br>
+                <label for="description">Description:</label>
+                <input type="text" id="description" ng-model="task.description">
+                <br>
+                <label for="dueDate">Due Date:</label>
+                <input type="text" id="dueDate" ng-model="task.dueDate">
+                <br>
+                <label for="priority">Priority:</label>
+                <input type="text" id="priority" ng-model="task.priority">
+                <br>
+                <input type="hidden" id="status" ng-model="task.status">
+              </form>
+              <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+              <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
+            </div> <!-- card -->
+          </div> <!-- notstarted -->
+        </div>
 
-
-        <div id="inProgress" dragula="'status-bag'"> <!-- Starts Not Started Section -->
+        <div>
           <h3>In Progress</h3>
-          <div class="CARD" ng-repeat="task in tasks | filter:status='inProgress' | orderBy: 'priority'">
-            <div class="INFO" ng-hide="showme">
-              <p>Title: {{ task.title }}</p>
-              <p>Description: {{ task.description }}</p>
-              <p>Due Date: {{ task.dueDate }}</p>
-              <p>Priority: {{ task.priority }}</p>
-              <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
-            </div>
-            <!-- Hidden Edit Form -->
-            <form ng-show="showme">
-              <input type="hidden" id="{{ $index }}" ng-model="task.id">
-              <label for="title">Title:</label>
-              <input type="text" id="title" ng-model="task.title">
-              <br>
-              <label for="description">Description:</label>
-              <input type="text" id="description" ng-model="task.description">
-              <br>
-              <label for="dueDate">Due Date:</label>
-              <input type="text" id="dueDate" ng-model="task.dueDate">
-              <br>
-              <label for="priority">Priority:</label>
-              <input type="text" id="priority" ng-model="task.priority">
-              <br>
-              <input type="hidden" id="status" ng-model="task.status">
-            </form>
-            <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
-            <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
-          </div> <!-- card -->
-        </div> <!-- notstarted -->
+          <div id="inProgress" dragula="'status-bag'"> <!-- Starts Not Started Section -->
+            <div class="CARD" ng-repeat="task in tasks | filter:status='inProgress' | orderBy: 'priority'">
+              <div class="INFO" ng-hide="showme">
+                <p>Title: {{ task.title }}</p>
+                <p>Description: {{ task.description }}</p>
+                <p>Due Date: {{ task.dueDate }}</p>
+                <p>Priority: {{ task.priority }}</p>
+                <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
+              </div>
+              <!-- Hidden Edit Form -->
+              <form ng-show="showme">
+                <input type="hidden" id="{{ $index }}" ng-model="task.id">
+                <label for="title">Title:</label>
+                <input type="text" id="title" ng-model="task.title">
+                <br>
+                <label for="description">Description:</label>
+                <input type="text" id="description" ng-model="task.description">
+                <br>
+                <label for="dueDate">Due Date:</label>
+                <input type="text" id="dueDate" ng-model="task.dueDate">
+                <br>
+                <label for="priority">Priority:</label>
+                <input type="text" id="priority" ng-model="task.priority">
+                <br>
+                <input type="hidden" id="status" ng-model="task.status">
+              </form>
+              <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+              <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
+            </div> <!-- card -->
+          </div> <!-- notstarted -->
+        </div>
 
-
-        <div id="completed" dragula="'status-bag'"> <!-- Starts Not Started Section -->
-          <h3>Completed</h3>
-          <div class="CARD" ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'">
-            <div class="INFO" ng-hide="showme">
-              <p>Title: {{ task.title }}</p>
-              <p>Description: {{ task.description }}</p>
-              <p>Due Date: {{ task.dueDate }}</p>
-              <p>Priority: {{ task.priority }}</p>
-              <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
-            </div>
-            <!-- Hidden Edit Form -->
-            <form ng-show="showme">
-              <input type="hidden" id="{{ $index }}" ng-model="task.id">
-              <label for="title">Title:</label>
-              <input type="text" id="title" ng-model="task.title">
-              <br>
-              <label for="description">Description:</label>
-              <input type="text" id="description" ng-model="task.description">
-              <br>
-              <label for="dueDate">Due Date:</label>
-              <input type="text" id="dueDate" ng-model="task.dueDate">
-              <br>
-              <label for="priority">Priority:</label>
-              <input type="text" id="priority" ng-model="task.priority">
-              <br>
-              <input type="hidden" id="status" ng-model="task.status">
-            </form>
-            <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
-            <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
-          </div> <!-- card -->
-        </div> <!-- notstarted -->
+        <div>
+        <h3>Completed</h3>
+          <div id="completed" dragula="'status-bag'"> <!-- Starts Not Started Section -->
+            <div class="CARD" ng-repeat="task in tasks | filter:status='completed' | orderBy: 'priority'">
+              <div class="INFO" ng-hide="showme">
+                <p>Title: {{ task.title }}</p>
+                <p>Description: {{ task.description }}</p>
+                <p>Due Date: {{ task.dueDate }}</p>
+                <p>Priority: {{ task.priority }}</p>
+                <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
+              </div>
+              <!-- Hidden Edit Form -->
+              <form ng-show="showme">
+                <input type="hidden" id="{{ $index }}" ng-model="task.id">
+                <label for="title">Title:</label>
+                <input type="text" id="title" ng-model="task.title">
+                <br>
+                <label for="description">Description:</label>
+                <input type="text" id="description" ng-model="task.description">
+                <br>
+                <label for="dueDate">Due Date:</label>
+                <input type="text" id="dueDate" ng-model="task.dueDate">
+                <br>
+                <label for="priority">Priority:</label>
+                <input type="text" id="priority" ng-model="task.priority">
+                <br>
+                <input type="hidden" id="status" ng-model="task.status">
+              </form>
+              <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+              <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-show="showme">Delete</button>
+            </div> <!-- card -->
+          </div> <!-- notstarted -->
+        </div>
 
       </div> <!-- Ends Board -->
     </div> <!-- Ends Controller -->
