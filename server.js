@@ -25,13 +25,13 @@ app.use(passport.session());
 passport.use(new LocalStrategy(
   (username, password, done) => {
     Users.findOne({
-      where : {userName : username, password : password }
+      where : {username : username, password : password }
     })
     .then((User) => {
       if (User === null) {
         return done(null, false)
       }
-      let USERNAME = User.userName;
+      let USERNAME = User.username;
       let PASSWORD = User.password;
       if (!(username === USERNAME && password === PASSWORD)) {
         return done(null, false)
@@ -112,12 +112,12 @@ function isAuthenticated(req,res,next){
 }
 
 app.post('/login', passport.authenticate('local'), (req, res) => {
-  res.send(req.user);
+  res.send(req.body);
 });
 
 app.post('/register', (req, res) => {
   Users.create({
-    userName : req.body.userName,
+    username : req.body.username,
     password : req.body.password
   })
   .then((user) => {
