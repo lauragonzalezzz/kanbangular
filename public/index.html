@@ -11,27 +11,27 @@
   <div class="main">
     <header>
       <h1 id="mainHeading">Kanbangular</h1>
-      <div class="loginNav">
+      <div ng-controller="LoginController" class="loginNav">
         <a href="" class="navButtons animBtn themeA" id="logIn" ng-click=" loginButton=true" ng-hide="initButton; loginButton; registerButton">Log In</a>
         <a href="" class="navButtons animBtn themeA" id="register" ng-click=" registerButton=true" ng-hide="registerButton; loginButton">Register</a>
-<!--         <a href="" class="navButtons animBtn themeA" id="logout" ng-click="logout(); showLogout=true" ng-hide="logOutButton">LogOut</a> -->
+<!--         <a href="" class="navButtons animBtn themeA" id="logout" ng-click="logout(); showLogout=true" ng-hide="logOutButton">Logout</a> -->
 
-        <div id="loginForm"
+        <div id="loginForm">
           <form ng-show="loginButton">
-            <label for="userName">Username:</label>
-            <input type="text" id="userName" ng-model="login.userName">
-            <br> m
-            <label for="password">Password:</label>
-            <input type="password" id="password" ng-model="login.password">
+            <label for="username">Username:</label>
+            <input type="text" id="username" ng-model="user.username">
             <br>
-            <a href="" class="navButtons animBtn themeA" id="submit" ng-click="login(user)">LogIn</a>
+            <label for="password">Password:</label>
+            <input type="password" id="password" ng-model="user.password">
+            <br>
+            <a href="" class="navButtons animBtn themeA" id="submit" ng-click="login(user)">Login</a>
           </form>
         </div>
 
         <div id="registerForm">
           <form ng-show="registerButton">
-            <label for="userName">Username:</label>
-            <input type="text" id="userName" ng-model="register.userName">
+            <label for="username">Username:</label>
+            <input type="text" id="username" ng-model="register.username">
             <br>
             <label for="password">Password:</label>
             <input type="password" id="password" ng-model="register.password">
@@ -198,5 +198,6 @@
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="text/javascript" src="/js/services.js"></script>
   <script type="text/javascript" src="/js/controllers/tasksController.js"></script>
+  <script type="text/javascript" src="/js/controllers/loginController.js"></script>
 </body>
 </html>
