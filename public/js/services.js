@@ -31,27 +31,34 @@
 
     .service('LoginService', ['$http', function($http){
 
-      this.user = {};
+      this.isLoggedIn = false;
 
-      this.getUser = function(){
-        return this.user;
-      };
+      this.get = function(){
+        return this.isLoggedIn;
+      }
 
       this.logout = function(){
-        return $http.get('/logout');
+        return $http.get('/logout')
+        // .then(function(){
+        //   this.isLoggedIn = false;
+        // })
       };
 
       this.login = function(user){
+        var self = this;
         return $http({
           url: '/login',
           method: 'POST',
           data: user,
           headers: {"Content-Type": "application/json;charset=utf-8"}
         }).then(function(response){
-          this.user = {
-            username: response.data.username
+          if (response.status === 200) {
+            self.isLoggedIn = true;
+          };
+          if (response.status !== 200) {
+            console.log('ERROR');
           }
-        })
+        });
       };
 
       this.register = function(newUser){
