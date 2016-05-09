@@ -4,7 +4,7 @@
   angular.module('app')
   .controller("LoginController", ['$scope', 'loginService', function($scope, loginService){
 
-    $scope.logout = loginService.logout()
+    $scope.logout = loginService.logout();
 
     $scope.login = function(user){
       loginService.login(user)
@@ -23,8 +23,8 @@
       })
       .error(function() {
         $scope.user = "An error has occurred";
-      })
-    }
+      });
+    };
 
-  }])
+  }]);
 })();

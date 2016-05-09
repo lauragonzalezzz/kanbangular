@@ -12,11 +12,12 @@
 
 body{
   background-color: #EFEFEF;
+  font-family: Lucida Sans;
 }
 
 header{
  width: 100%;
- height: 90px;
+ height: 100px;
  background-color: #FFF;
  display: flex;
  flex-flow: row nowrap;
@@ -33,23 +34,29 @@ header{
   padding: 10px;
   background-color: rgba(247,155,46, 0.7);
   width: 300px;
-  height: 85px;
+  height: 80px;
 }
 
 .loginNav{
   height: inherit;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   margin-left: 50%;
-  padding-top: 2%;
+  padding-top: 0px;
   float: right;
+  z-index: 2;
+}
+
+#loginForm{
+  background-color: #CCCCCC;
+  display: inline-block;
   z-index: 2;
 }
 
 .animBtn:link, .animBtn:visited {
   position: relative;
   display: block;
-  width: 80px;
+  width: 90px;
   margin: auto;
   padding: 8px;
   border: 2px solid #F79B2E;
@@ -58,6 +65,7 @@ header{
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  font-size: 11px;
   overflow: hidden;
   letter-spacing: .08em;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -118,10 +126,15 @@ header{
   transform: translateX(-50%) translateY(-50%) rotate(-45deg);
 }
 
+.ng-scope{
+  width: 100%;
+}
+
 #tcontrol{
   display: flex;
+  justify-content: center;
   flex-flow: column nowrap;
-  width: 300px;
+  width: 100%;
 }
 
 #addNew{
@@ -134,26 +147,48 @@ header{
 #board{
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
   align-items: flex-start;
 }
 
+.boardHeader{
+  height: 50px;
+  letter-spacing: 1px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+#status1{
+  color: #fff;
+  background-color: rgba(236,63,140, 0.7);
+}
+
+#status2{
+  background-color: rgba(0,203,233, 0.7);
+}
+
+#status3{
+  background-color: rgba(31,210,106, 0.7);
+}
+
 #notStarted{
-  width: 365px;
+  // width: 365px;
   height: 800px;
   padding: 4%;
   background-color: #fff;
 }
 
 #inProgress{
-  width: 365px;
+  // width: 365px;
   height: 800px;
   padding: 4%;
   background-color: #fff;
 }
 
 #completed{
-  width: 365px;
+  // width: 365px;
   height: 800px;
   padding: 4%;
   background-color: #fff;
@@ -162,16 +197,44 @@ header{
 .CARD{
   width: 325px;
   height: 100px;
-  padding: 4%;
+  padding: 7px;
   margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 12px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.INFO{
+.changeOperators{
+  width: auto;
   padding: 5px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.INFO{
+  width: 75%;
+  padding: 8px;
+}
+
+#sideStatNotStarted{
+  border-left: 3px solid #EC3F8C;
+  border-radius: 5px;
+}
+
+#sideStatProgress{
+  border-left: 3px solid #00CBE9;
+  border-radius: 5px;
+}
+
+#sideStatCompleted{
+  border-left: 3px solid #8BC53F;
+  border-radius: 5px;
 }
 
 p{
-  padding: 0px;
+  padding: 1px;
   margin: 0px;
 }
