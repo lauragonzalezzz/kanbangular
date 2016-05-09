@@ -2,16 +2,19 @@
 
 (function(){
   angular.module('app')
-  .controller("LoginController", ['$scope', 'loginService', function($scope, loginService){
+  .controller("LoginController", ['$scope', 'LoginService', function($scope, LoginService){
     // $scope.show = false;
 
-    $scope.logout = loginService.logout();
+    $scope.logout = function(user){
+      LoginService.logout();
+    };
 
     $scope.login = function(user){
-      loginService.login(user)
+      console.log(user);
+      LoginService.login(user)
       .success(function(response) {
-        console.log(response);
-        $scope.user = response.username;
+        console.log('controller response: ',response);
+        // $scope.user = response.username;
         // $scope.show = true;
       })
       .error(function(){
@@ -19,7 +22,7 @@
       });
     };
     $scope.register = function(user){
-      loginService.register(newUser)
+      LoginService.register(newUser)
       .success(function(response) {
         // $scope.user = response.username;
 
