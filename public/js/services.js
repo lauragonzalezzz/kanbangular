@@ -31,19 +31,27 @@
 
     .service('LoginService', ['$http', function($http){
 
+      this.user = {};
+
+      this.getUser = function(){
+        return this.user;
+      };
+
       this.logout = function(){
         return $http.get('/logout');
       };
 
       this.login = function(user){
-        console.log('SERVICE', user);
-        // return $http.post('/login', user);
         return $http({
           url: '/login',
           method: 'POST',
           data: user,
           headers: {"Content-Type": "application/json;charset=utf-8"}
-        });
+        }).then(function(response){
+          this.user = {
+            username: response.data.username
+          }
+        })
       };
 
       this.register = function(newUser){
