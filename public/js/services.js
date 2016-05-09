@@ -36,7 +36,14 @@
       };
 
       this.login = function(user){
-        return $http.post('/login', user);
+        console.log('SERVICE', user);
+        // return $http.post('/login', user);
+        return $http({
+          url: '/login',
+          method: 'POST',
+          data: user,
+          headers: {"Content-Type": "application/json;charset=utf-8"}
+        });
       };
 
       this.register = function(newUser){
