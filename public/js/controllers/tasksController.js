@@ -37,6 +37,7 @@
     };
 
     $scope.deleteTask = function(task){
+      console.log('controller: task',task);
       TaskService.deleteTask(task).success(function(response){
         $scope.tasks = response.tasks;
       });

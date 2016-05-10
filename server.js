@@ -194,6 +194,7 @@ app.put('/api/status', (req, res) => {
 });
 
 app.delete('/api/tasks', (req, res) => {
+  console.log(req.body.id);
   Tasks.destroy({
     where: {
       id : req.body.id
@@ -206,6 +207,7 @@ app.delete('/api/tasks', (req, res) => {
       let tasksArr = [];
       tasks.forEach((eachTask) =>{
         tasksArr.push({
+          id: eachTask.id,
           title : eachTask.title,
           description : eachTask.description,
           dueDate : eachTask.dueDate,

@@ -15,6 +15,7 @@
       };
 
       this.deleteTask = function(task){
+        console.log('task',task);
         return $http({
           url: '/api/tasks',
           method: 'DELETE',
