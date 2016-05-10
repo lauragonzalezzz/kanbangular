@@ -13,9 +13,9 @@
     <header>
       <h1 id="mainHeading">Kanbangular</h1>
       <div ng-controller="LoginController" class="loginNav">
-        <a href="" class="navButtons animBtn themeA" id="logIn" ng-click=" loginButton=true" ng-hide="initButton; loginButton; registerButton">Log In</a>
+        <a href="" class="navButtons animBtn themeA" id="logIn" ng-click="loginButton=true" ng-hide="initButton; loginButton; registerButton">Log In</a>
         <a href="" class="navButtons animBtn themeA" id="register" ng-click=" registerButton=true" ng-hide="registerButton; loginButton">Register</a>
-<!--         <a href="" class="navButtons animBtn themeA" id="logout" ng-click="logout(); showLogout=true" ng-hide="logOutButton">Logout</a> -->
+        <a href="" class="navButtons animBtn themeA" id="logout" ng-click="logout(); showLogout=true" ng-hide="logOutButton">Logout</a>
 
         <div id="loginForm">
           <form ng-show="loginButton">
@@ -25,7 +25,7 @@
             <label for="password">Password:</label>
             <input type="password" id="password" ng-model="user.password">
             <br>
-            <a href="" class="navButtons animBtn themeA" id="submit" ng-click="login(user)">Login</a>
+            <a href="" class="navButtons animBtn themeA" id="submit" ng-click="login(user); loginButton=false">Login</a>
           </form>
         </div>
 
@@ -37,7 +37,7 @@
             <label for="password">Password:</label>
             <input type="password" id="password" ng-model="newUser.password">
             <br>
-            <a href="" class="navButtons animBtn themeA" id="submit" ng-click="register(newUser)">Register</a>
+            <a href="" class="navButtons animBtn themeA" id="submit" ng-click="register(newUser); registerButton=false">Register</a>
           </form>
         </div>
       </div> <!-- Ends LogIn Nav -->
