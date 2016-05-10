@@ -57,12 +57,20 @@
           };
           if (response.status !== 200) {
             console.log('ERROR');
-          }
+          };
         });
       };
 
       this.register = function(newUser){
-        return $http.post('/register', newUser);
+        return $http.post('/register', newUser)
+        .then(function(response){
+          if (response.status === 200) {
+            self.isLoggedIn = true;
+          };
+          if (response.status !== 200) {
+            console.log('ERROR');
+          };
+        });
       };
 
 
