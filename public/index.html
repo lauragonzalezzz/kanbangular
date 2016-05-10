@@ -31,10 +31,10 @@
         <div id="registerForm">
           <form ng-show="registerButton">
             <label for="username">Username:</label>
-            <input type="text" id="username" ng-model="register.username">
+            <input type="text" id="username" ng-model="newUser.username">
             <br>
             <label for="password">Password:</label>
-            <input type="password" id="password" ng-model="register.password">
+            <input type="password" id="password" ng-model="newUser.password">
             <br>
             <a href="" class="navButtons animBtn themeA" id="submit" ng-click="register(newUser)">Register</a>
           </form>
@@ -61,6 +61,7 @@
                 <option value="5">5</option>
               </select>
             </div>
+
             <div class="selectdiv">
               <select ng-model="newTask.status" required>
                 <option selected value="">Select Status</option>

@@ -31,23 +31,46 @@
 
     .service('LoginService', ['$http', function($http){
 
+      this.isLoggedIn = false;
+
+      this.get = function(){
+        return this.isLoggedIn;
+      }
+
       this.logout = function(){
-        return $http.get('/logout');
+        return $http.get('/logout')
+        // .then(function(){
+        //   this.isLoggedIn = false;
+        // })
       };
 
       this.login = function(user){
-        console.log('SERVICE', user);
-        // return $http.post('/login', user);
+        var self = this;
         return $http({
           url: '/login',
           method: 'POST',
           data: user,
           headers: {"Content-Type": "application/json;charset=utf-8"}
+        }).then(function(response){
+          if (response.status === 200) {
+            self.isLoggedIn = true;
+          };
+          if (response.status !== 200) {
+            console.log('ERROR');
+          };
         });
       };
 
       this.register = function(newUser){
-        return $http.post('/register', newUser);
+        return $http.post('/register', newUser)
+        .then(function(response){
+          if (response.status === 200) {
+            self.isLoggedIn = true;
+          };
+          if (response.status !== 200) {
+            console.log('ERROR');
+          };
+        });
       };
 
 

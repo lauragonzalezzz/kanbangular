@@ -3,32 +3,31 @@
 (function(){
   angular.module('app')
   .controller("LoginController", ['$scope', 'LoginService', function($scope, LoginService){
-    // $scope.show = false;
 
     $scope.logout = function(user){
       LoginService.logout();
     };
 
     $scope.login = function(user){
-      console.log(user);
       LoginService.login(user)
-      .success(function(response) {
-        console.log('controller response: ',response);
-        // $scope.user = response.username;
-        // $scope.show = true;
+      .then(function() {
+        console.log('success logging in');
+        if (LoginService.get() === true){
+          $scope.addBtn = true;
+        }
+        console.log($scope.addBtn);
       })
-      .error(function(){
-        $scope.user = "Please try again";
+      .catch(function(){
+        alert('Invalid login credentials, please try again');
       });
     };
-    $scope.register = function(user){
+    $scope.register = function(newUser){
       LoginService.register(newUser)
-      .success(function(response) {
-        // $scope.user = response.username;
-
+      .then(function() {
+        console.log('yuss!');
       })
-      .error(function() {
-        $scope.user = "An error has occurred";
+      .catch(function() {
+        alert("An error has occurred");
       });
     };
 
