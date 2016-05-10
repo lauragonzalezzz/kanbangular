@@ -10,13 +10,12 @@
 
     $scope.login = function(user){
       LoginService.login(user)
-      // .then(function() {
-      //   console.log('success logging in');
-      //   if (LoginService.get() === true){
-      //     $scope.addBtn = true;
-      //   }
-      //   console.log($scope.addBtn);
-      // })
+      .then(function() {
+        Object.assign(user, {
+          username: "",
+          password: ""
+        });
+      })
       .catch(function(){
         alert('Invalid login credentials, please try again');
       });
