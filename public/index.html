@@ -76,7 +76,7 @@
             <a href="" class="btn-ghost btn-white btn-align" ng-click="show=false; addTask(newTask)">Submit</a> <!-- SUBMIT BUTTON -->
           </fieldset>
         </form>
-        <a href="" class="navButtons animBtnB themeB"  ng-click="checkLogin(); show=true" ng-hide="show">Add Task</a> <!-- ADD TASK BUTTON -->
+        <a href="" class="navButtons animBtnB themeB"  ng-click="checkLogin() ? show=true : show=false" ng-hide="show">Add Task</a> <!-- ADD TASK BUTTON -->
       </div>
 
       <div id="board">
@@ -92,7 +92,7 @@
               </div>
 
               <div class="changeOperators">
-                <button class="editButton updateButton" ng-click="showme=true" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="notStartedIcon"></i></button>
+                <button class="editButton updateButton" ng-click="editTask() ? showme=true : showme=false" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="notStartedIcon"></i></button>
                 <button class="deleteButton updateButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme"><i class="fa fa-lg fa-trash-o" aria-hidden="true" id="notStartedIcon"></i></button>
               </div>
               <!-- Hidden Edit Form -->
@@ -129,7 +129,7 @@
               </div>
 
               <div class="changeOperators">
-                <button class="editButton updateButton" ng-click="showme=true" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="inProgressIcon"></i></button>
+                <button class="editButton updateButton" ng-click="editTask() ? showme=true : showme=false" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="inProgressIcon"></i></button>
                 <button class="deleteButton updateButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme"><i class="fa fa-lg fa-trash-o" aria-hidden="true" id="inProgressIcon"></i></button>
               </div>
               <!-- Hidden Edit Form -->
@@ -166,7 +166,7 @@
               </div>
 
               <div class="changeOperators">
-                <button class="editButton updateButton" ng-click="showme=true" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="completedIcon"></i></button>
+                <button class="editButton updateButton" ng-click="editTask() ? showme=true : showme=false" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="completedIcon"></i></button>
                 <button class="deleteButton updateButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme"><i class="fa fa-lg fa-trash-o" aria-hidden="true" id="completedIcon"></i></button>
               </div>
 
