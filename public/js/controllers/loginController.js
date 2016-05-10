@@ -31,7 +31,7 @@
       else {
         LoginService.register(newUser)
         .then(function() {
-          Object.assign(user, {
+          Object.assign(newUser, {
             username: "",
             password: ""
           });
