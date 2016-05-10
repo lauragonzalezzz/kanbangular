@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Kanbangular</title>
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/dragula.min.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body ng-app= "app">
@@ -92,8 +92,8 @@
               </div>
 
               <div class="changeOperators">
-                <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
-                <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme">Delete</button>
+                <button class="editButton updateButton" ng-click="showme=true" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="notStartedIcon"></i></button>
+                <button class="deleteButton updateButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme"><i class="fa fa-lg fa-trash-o" aria-hidden="true" id="notStartedIcon"></i></button>
               </div>
               <!-- Hidden Edit Form -->
               <form ng-show="showme">
@@ -129,8 +129,8 @@
               </div>
 
               <div class="changeOperators">
-                <button class="editButton" ng-click="showme=true" ng-hide="showme"><span class="icon-pencil"></span>Edit</button>
-                <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme">Delete</button>
+                <button class="editButton updateButton" ng-click="showme=true" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="inProgressIcon"></i></button>
+                <button class="deleteButton updateButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme"><i class="fa fa-lg fa-trash-o" aria-hidden="true" id="inProgressIcon"></i></button>
               </div>
               <!-- Hidden Edit Form -->
               <form ng-show="showme">
@@ -166,8 +166,8 @@
               </div>
 
               <div class="changeOperators">
-                <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
-                <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme">Delete</button>
+                <button class="editButton updateButton" ng-click="showme=true" ng-hide="showme"><i class="fa fa-lg fa-pencil" id="completedIcon"></i></button>
+                <button class="deleteButton updateButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme"><i class="fa fa-lg fa-trash-o" aria-hidden="true" id="completedIcon"></i></button>
               </div>
 
               <!-- Hidden Edit Form -->

@@ -47,9 +47,10 @@ header{
   z-index: 2;
 }
 
+
 #loginForm{
   background-color: #CCCCCC;
-  display: inline-block;
+  display: block;
   z-index: 2;
 }
 
@@ -231,7 +232,11 @@ header{
 #newTask{
   font-size: 20px;
   text-align: left;
-  margin: 10px;
+  padding-left: 0px;
+  margin-bottom: 10px;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 23px rgba(0,0,0,0.1);
 }
 
 .taskInput{
@@ -407,6 +412,27 @@ header{
   flex-flow: row nowrap;
   justify-content: flex-end;
   align-items: flex-start;
+}
+
+#notStartedIcon{
+  color: #EC3F8C;
+  height: auto;
+}
+
+#inProgressIcon{
+  color: #00CBE9;
+  height: auto;
+}
+
+#completedIcon{
+  color: #8BC53F;
+  height: auto;
+}
+
+.updateButton{
+  border: none;
+  background: none;
+  padding: 10px;
 }
 
 .INFO{
