@@ -13,6 +13,7 @@ const express       = require('express'),
       CONFIG        = require('./config/config.json'),
       bcrypt        = require('bcrypt');
 
+app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json({ type: 'application/json' }));
@@ -219,7 +220,8 @@ app.delete('/api/tasks', (req, res) => {
   });
 });
 
-db.sequelize.sync();
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+db.sequelize.sync().then(function() {
+  app.listen(app.get('port'), function(){
+      console.log('Express server listening on port ' + app.get('port'));
+    });
 });
