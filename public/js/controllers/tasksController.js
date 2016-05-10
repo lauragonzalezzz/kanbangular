@@ -6,8 +6,6 @@
 
   //Task Services
 
-    $scope.addBtn = false;
-
     TaskService.getTasks().then(function(response) {
       $scope.tasks = response.data.tasks;
     });
@@ -17,7 +15,6 @@
       if (LoginService.get() === true){
         TaskService.addTask(task).success(function (response) {
            $scope.tasks = response.tasks;
-           $scope.addBtn = true;
         });
       }
       else {
