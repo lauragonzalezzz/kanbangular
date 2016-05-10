@@ -13,30 +13,41 @@
     $scope.checkLogin = function(){
       if (LoginService.get() === false){
         alert("Please login to use this service");
+        return false;
+      }
+      else {
+        return true;
       }
     }
 
     $scope.addTask = function (task) {
-      if (task.status === null){
-        task.status = notStarted;
+      if (task === undefined){
+        alert("Please enter all task fields");
       }
       if (LoginService.get() === true){
-        if (task.title === null ||
-        task.priority === null ||
-        task.dueDate === null ||
-        task.status === null)
-        TaskService.addTask(task).success(function (response) {
-           $scope.tasks = response.tasks;
-        })
-        .then(function(){
-          Object.assign(task, {
-          title: "",
-          description: "",
-          dueDate: "",
-          priority: "",
-          status: ""
+        if (task.title !== undefined ||
+        task.priority !== undefined ||
+        task.dueDate !== undefined) {
+          if (task.status === undefined){
+            task.status = notStarted;
+          }
+
+          TaskService.addTask(task).success(function (response) {
+             $scope.tasks = response.tasks;
+          })
+          .then(function(){
+            Object.assign(task, {
+            title: "",
+            description: "",
+            dueDate: "",
+            priority: "",
+            status: ""
+            });
           });
-        });
+        }
+        else {
+          alert("Please enter all task fields");
+        }
       }
       if (LoginService.get() === false){
         alert("Please log in to use this service");
@@ -44,15 +55,35 @@
     };
 
     $scope.saveTask = function (task) {
-      TaskService.saveTask(task).success(function (response) {
-         $scope.tasks = response.tasks;
-      });
+      if (LoginService.get() === true){
+        TaskService.saveTask(task).success(function (response) {
+           $scope.tasks = response.tasks;
+        });
+      }
+      else {
+        alert("Please login to use this service");
+      }
     };
 
+    $scope.editTask = function(){
+      if (LoginService.get() === false){
+        alert("Please login to use this service");
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+
     $scope.deleteTask = function(task){
-      TaskService.deleteTask(task).success(function(response){
-        $scope.tasks = response.tasks;
-      });
+      if (LoginService.get() === true){
+        TaskService.deleteTask(task).success(function(response){
+          $scope.tasks = response.tasks;
+        });
+      }
+      else {
+        alert("Please login to use this service");
+      }
     };
 
 
