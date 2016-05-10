@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('Tasks', [{
       title: 'saca la basura',
       description: 'take out the trash',
-      dueDate: new Date(),
+      dueDate: "Friday",
       priority: 1,
       status: 'inprogress',
       createdAt: new Date(),
@@ -15,7 +15,7 @@ module.exports = {
      {
       title: 'liempa el techo',
       description: 'clean the roof',
-      dueDate: new Date(),
+      dueDate: "Tomorrow",
       priority: 2,
       status: 'notstarted',
       createdAt: new Date(),
@@ -25,7 +25,7 @@ module.exports = {
      {
       title: 'lava las trastes',
       description: 'wash the dishes',
-      dueDate: new Date(),
+      dueDate: "Thursday",
       priority: 5,
       status: 'completed',
       createdAt: new Date(),
