@@ -255,6 +255,9 @@ header {
   justify-content: center;
   background-color: #fff; }
 
+.statusWrap {
+  flex: 1 0 30%; }
+
 #status1 {
   color: #fff;
   font-weight: normal;
