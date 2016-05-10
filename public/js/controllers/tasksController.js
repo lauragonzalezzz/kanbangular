@@ -10,6 +10,12 @@
       $scope.tasks = response.data.tasks;
     });
 
+    $scope.checkLogin = function(){
+      if (LoginService.get() === false){
+        alert("Please login to use this service");
+      }
+    }
+
     $scope.addTask = function (task) {
       if (task.status === null){
         task.status = notStarted;
