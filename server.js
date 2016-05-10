@@ -26,7 +26,7 @@ app.use(passport.session());
 passport.use(new LocalStrategy(
   (username, password, done) => {
     Users.findOne({
-      where : {username : username, password : password }
+      where : {username : username}
     })
     .then((User) => {
       if (User === null) {
@@ -40,7 +40,6 @@ passport.use(new LocalStrategy(
         let user = {
           username: USERNAME
         };
-        console.log('authenticated!');
         return done(null, user);
       });
     })
