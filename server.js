@@ -29,12 +29,12 @@ passport.use(new LocalStrategy(
     })
     .then((User) => {
       if (User === null) {
-        return done(null, false)
+        return done(null, false);
       }
       let USERNAME = User.username;
       let PASSWORD = User.password;
       if (!(username === USERNAME && password === PASSWORD)) {
-        return done(null, false)
+        return done(null, false);
       }
       let user = {
         username : USERNAME
@@ -42,7 +42,7 @@ passport.use(new LocalStrategy(
       return done(null, user);
     })
     .catch((error) => {
-      throw new Error (error)
+      throw new Error (error);
     });
   }
 ));
@@ -76,7 +76,7 @@ app.get('/logout', (req, res) => {
   req.logout();
   console.log('Logging out');
   res.redirect('/');
-})
+});
 
 app.post('/api/tasks', (req, res) => {
   Tasks.create({
@@ -122,8 +122,8 @@ app.post('/register', (req, res) => {
   })
   .then((user) => {
     return res.json(user);
-  })
-})
+  });
+});
 
 app.put('/api/tasks', (req, res) => {
   Tasks.update({
@@ -205,7 +205,7 @@ app.delete('/api/tasks', (req, res) => {
       });
       res.json({tasks : tasksArr});
     });
-  })
+  });
 });
 
 db.sequelize.sync();

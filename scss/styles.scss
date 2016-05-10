@@ -53,6 +53,7 @@ header{
   z-index: 2;
 }
 
+// styles for login/reg buttons
 .animBtn:link, .animBtn:visited {
   position: relative;
   display: block;
@@ -65,7 +66,8 @@ header{
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: bold;
   overflow: hidden;
   letter-spacing: .08em;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -78,9 +80,6 @@ header{
 .fill {
   position: relative;
   display: block;
-  // width: 180px;
-  // margin: 30px auto 0;
-  // padding: 14px 15px;
   border: 2px solid #F79B2E;
   background: rgba(255, 255, 255, 0.2);
   color: #F79B2E;
@@ -89,7 +88,7 @@ header{
   text-transform: uppercase;
   overflow: hidden;
   letter-spacing: .08em;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
   -o-transition: all .3s ease;
@@ -125,6 +124,7 @@ header{
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
   transform: translateX(-50%) translateY(-50%) rotate(-45deg);
 }
+// Ends LogIn Reg Buttons
 
 // addbutton styles
 .animBtnB:link, .animBtnB:visited {
@@ -136,13 +136,14 @@ header{
   border: 2px solid #1FD26A;
   background: rgba(255, 255, 255, 0.2);
   color: #1FD26A;
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   overflow: hidden;
   letter-spacing: .08em;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
   -o-transition: all .3s ease;
@@ -152,9 +153,6 @@ header{
 .fill {
   position: relative;
   display: block;
-  // width: 180px;
-  // margin: 30px auto 0;
-  // padding: 14px 15px;
   border: 2px solid #1FD26A;
   background: rgba(255, 255, 255, 0.2);
   color: #1FD26A;
@@ -304,6 +302,7 @@ header{
   height: 1.5rem;
   padding-top: 0.7em;
   font: 12px "Open Sans", sans-serif;
+  font-weight: bold;
   letter-spacing: .09em;
   text-align: center;
   text-decoration: none;
@@ -312,7 +311,12 @@ header{
   margin: 0 auto;
 }
 
-.btn-white { color: #fff; border: 2px solid #fff; }
+.btn-white {
+  color: #fff;
+  border: 2px
+  solid #fff;
+}
+
 .btn-white:hover, .btn-white:active, .btn-white:focus  {
   color: #1Fd26A;
   background-color: #fff;
@@ -337,7 +341,10 @@ header{
 
 .boardHeader{
   height: 50px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
   display: flex;
   text-align: center;
   align-items: center;
@@ -391,10 +398,6 @@ header{
   flex-flow: row nowrap;
   font-size: 12px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.icon-pencil:before {
-    content: "\e900";
 }
 
 .changeOperators{
