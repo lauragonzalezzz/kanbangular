@@ -6,11 +6,13 @@
 
     $scope.logout = function(user){
       LoginService.logout();
+      alert("Successful logout");
     };
 
     $scope.login = function(user){
       LoginService.login(user)
       .then(function() {
+        alert("Successful Login");
         Object.assign(user, {
           username: "",
           password: ""
@@ -31,6 +33,7 @@
       else {
         LoginService.register(newUser)
         .then(function() {
+          alert("Successful Registration");
           Object.assign(newUser, {
             username: "",
             password: ""
