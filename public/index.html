@@ -5,6 +5,7 @@
   <title>Kanbangular</title>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/dragula.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <body ng-app= "app">
@@ -48,9 +49,8 @@
           <fieldset id="addNewForm">
             <p id="newTask">New Task</p>
             <input class="taskInput" type="text" id="Title" ng-model="newTask.title" placeholder="Task Title">
-            <textarea class="taskInput taskDescription" rows="10" id="Description" ng-model="newTask.description" placeholder="Task Description"></textarea>
+            <textarea rows="10" id="Description" ng-model="newTask.description" placeholder="Task Description"></textarea>
             <input class="taskInput" type="text" id="dueDate" ng-model="newTask.dueDate" placeholder="Due Date">
-            <input class="taskInput" type="text" id="Priority" ng-model="newTask.priority" placeholder="Priority">
             <div class="selectdiv">
               <select ng-model="newTask.priority" required>
                 <option selected value="">Select Priority</option>
