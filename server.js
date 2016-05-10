@@ -201,7 +201,6 @@ app.delete('/api/tasks', (req, res) => {
     }
   })
   .then(function(){
-    console.log('hello');
     Tasks.findAll()
     .then((tasks) => {
       let tasksArr = [];
