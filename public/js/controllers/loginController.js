@@ -16,7 +16,8 @@
           password: ""
         });
       })
-      .catch(function(){
+      .catch(function(err){
+        console.log(err);
         $scope.loginError = "Invalid username or password";
       });
     };
