@@ -2,16 +2,27 @@
 
 (function(){
   angular.module('app')
-  .controller('tasksController', ['$scope', 'TaskService', 'dragulaService', function($scope, TaskService, dragulaService){
+  .controller('tasksController', ['$scope', 'TaskService', 'dragulaService', 'LoginService', function($scope, TaskService, dragulaService, LoginService){
+
+  //Task Services
+
+    $scope.addBtn = false;
 
     TaskService.getTasks().then(function(response) {
       $scope.tasks = response.data.tasks;
     });
 
     $scope.addTask = function (task) {
-      TaskService.addTask(task).success(function (response) {
-         $scope.tasks = response.tasks;
-      });
+      // console.log(LoginService.get());
+      if (LoginService.get() === true){
+        TaskService.addTask(task).success(function (response) {
+           $scope.tasks = response.tasks;
+           $scope.addBtn = true;
+        });
+      }
+      else {
+        alert("Please log in to use this service");
+      }
     };
 
     $scope.saveTask = function (task) {
@@ -27,7 +38,7 @@
     };
 
 
-  //Drag and Drop functionality
+  //Dragula Services
     $scope
       .$on('status-bag.drop', function(error, element){
         var status = element[0].parentNode.id;
