@@ -14,6 +14,15 @@
       if (LoginService.get() === true){
         TaskService.addTask(task).success(function (response) {
            $scope.tasks = response.tasks;
+        })
+        .then(function(){
+          Object.assign(task, {
+          title: "",
+          description: "",
+          dueDate: "",
+          priority: "",
+          status: ""
+          });
         });
       }
       else {
