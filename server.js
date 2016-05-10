@@ -10,7 +10,8 @@ const express       = require('express'),
       passport      = require('passport'),
       LocalStrategy = require('passport-local').Strategy,
       session       = require('express-session'),
-      CONFIG        = require('./config/config.json');
+      CONFIG        = require('./config/config.json'),
+      bcrypt        = require('bcrypt');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended : true}));
@@ -31,21 +32,23 @@ passport.use(new LocalStrategy(
       if (User === null) {
         return done(null, false)
       }
-      let USERNAME = User.username;
-      let PASSWORD = User.password;
-      if (!(username === USERNAME && password === PASSWORD)) {
-        return done(null, false)
-      }
-      let user = {
-        username : USERNAME
-      };
-      return done(null, user);
+      bcrypt.compare(password, User.password, function(err, boolean) {
+        if (boolean === false){
+          return done(null, false)
+        }
+        let USERNAME = User.username;
+        let user = {
+          username: USERNAME
+        };
+        console.log('authenticated!');
+        return done(null, user);
+      });
     })
     .catch((error) => {
-      throw new Error (error)
+      throw new Error (error);
     });
-  }
-));
+  })
+);
 
 passport.serializeUser((user, done) => {
   return done(null, user);
@@ -112,18 +115,26 @@ function isAuthenticated(req,res,next){
 }
 
 app.post('/login', passport.authenticate('local'), (req, res) => {
+  console.log('all clear');
   res.send(req.body);
 });
 
 app.post('/register', (req, res) => {
-  Users.create({
-    username : req.body.username,
-    password : req.body.password
-  })
-  .then((user) => {
-    return res.json(user);
-  })
-})
+  const saltRounds = 10;
+  let pw = req.body.password;
+  bcrypt.hash(pw, saltRounds, function(err, hash){
+    Users.create({
+      username : req.body.username,
+      password : hash
+    })
+    .then((user) => {
+      return res.json(user);
+    })
+    .catch((err) =>{
+      return res.send(err);
+    });
+  });
+});
 
 app.put('/api/tasks', (req, res) => {
   Tasks.update({
