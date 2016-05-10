@@ -12,7 +12,7 @@
 
 body{
   background-color: #EFEFEF;
-  font-family: Lucida Sans;
+  font-family: 'Open Sans', sans-serif;
 }
 
 header{
@@ -225,7 +225,7 @@ header{
 #addNewForm{
   width: 400px;
   border: none;
-  padding-left: 15%;
+  padding-left: 26%;
   color: #fff;
   background-color: rgba(31,210,106, 0.7);
 }
@@ -234,17 +234,19 @@ header{
   margin: 10px;
 }
 
- .taskInput{
+.taskInput{
   width: 300px;
+  height: 16px;
+  font-size: 12px;
   margin-bottom: 8px;
   padding: 0px;
- }
+}
 
-// .taskDescription{
-//   height: 100px;
-// }
+#Description{
+  font-size: 12px;
+  width: 300px;
+}
 
-// starts newtask input dropdowns
 .selectdiv {
   position: relative;
   min-width: 150px;
@@ -307,7 +309,6 @@ header{
 
 #status1{
   color: #fff;
-  font-weight: normal;
   background-color: rgba(236,63,140, 0.7);
 }
 
@@ -322,31 +323,28 @@ header{
 }
 
 #notStarted{
-  // width: 365px;
-  min-height: 800px;
+  min-height: 600px;
   padding: 4%;
   background-color: #fff;
 }
 
 #inProgress{
-  // width: 365px;
-  min-height: 800px;
+  min-height: 600px;
   padding: 4%;
   background-color: #fff;
 }
 
 #completed{
-  // width: 365px;
-  min-height: 800px;
+  min-height: 600px;
   padding: 4%;
   background-color: #fff;
 }
 
 .CARD{
-  width: 325px;
-  height: 100px;
+  width: 360px;
+  height: auto;
   padding: 7px;
-  margin: auto;
+  margin-top: 5px;
   display: flex;
   flex-flow: row nowrap;
   font-size: 12px;
