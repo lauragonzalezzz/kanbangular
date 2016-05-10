@@ -23,7 +23,10 @@
     $scope.register = function(newUser){
       LoginService.register(newUser)
       .then(function() {
-        console.log('registered!');
+        Object.assign(user, {
+          username: "",
+          password: ""
+        });
       })
       .catch(function() {
         alert("An error has occurred");
