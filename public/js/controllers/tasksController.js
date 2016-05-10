@@ -11,7 +11,6 @@
     });
 
     $scope.addTask = function (task) {
-      // console.log(LoginService.get());
       if (LoginService.get() === true){
         TaskService.addTask(task).success(function (response) {
            $scope.tasks = response.tasks;
