@@ -23,7 +23,7 @@
     $scope.register = function(newUser){
       LoginService.register(newUser)
       .then(function() {
-        console.log('yuss!');
+        console.log('registered!');
       })
       .catch(function() {
         alert("An error has occurred");
