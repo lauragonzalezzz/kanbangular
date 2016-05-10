@@ -30,7 +30,7 @@ passport.use(new LocalStrategy(
     })
     .then((User) => {
       if (User === null) {
-        return done(null, false)
+        return done(null, false);
       }
       bcrypt.compare(password, User.password, function(err, boolean) {
         if (boolean === false){
@@ -78,7 +78,7 @@ app.get('/logout', (req, res) => {
   req.logout();
   console.log('Logging out');
   res.redirect('/');
-})
+});
 
 app.post('/api/tasks', (req, res) => {
   Tasks.create({
@@ -216,7 +216,7 @@ app.delete('/api/tasks', (req, res) => {
       });
       res.json({tasks : tasksArr});
     });
-  })
+  });
 });
 
 db.sequelize.sync();

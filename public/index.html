@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/dragula.min.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body ng-app= "app">
@@ -72,7 +73,7 @@
                 <option value="completed">Completed</option>
               </select>
             </div>
-            <button type="button" ng-click="show=false; addTask(newTask)">Submit</button>
+            <a href="" class="btn-ghost btn-white btn-align" ng-click="show=false; addTask(newTask)">Submit</a>
           </fieldset>
         </form>
         <a href="" class="navButtons animBtnB themeB"  ng-click="show=true" ng-hide="show">Add Task</a>
@@ -128,7 +129,7 @@
               </div>
 
               <div class="changeOperators">
-                <button class="editButton" ng-click="showme=true" ng-hide="showme">Edit</button>
+                <button class="editButton" ng-click="showme=true" ng-hide="showme"><span class="icon-pencil"></span>Edit</button>
                 <button class="deleteButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme">Delete</button>
               </div>
               <!-- Hidden Edit Form -->
@@ -138,7 +139,7 @@
                 <input type="text" id="title" ng-model="task.title">
                 <br>
                 <label for="description">Description:</label>
-                <input type="text" id="description" ng-model="task.description">
+                <textarea id="description" row="10" ng-model="task.description"></textarea>
                 <br>
                 <label for="dueDate">Due Date:</label>
                 <input type="text" id="dueDate" ng-model="task.dueDate">
@@ -198,6 +199,7 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
   <script type="text/javascript" src="/js/dragula.js"></script>
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="text/javascript" src="/js/services.js"></script>
