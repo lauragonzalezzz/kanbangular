@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lauragonzalezzz/kanbangular#readme",
   "dependencies": {
+    "bcrypt": "^0.8.6",
     "body-parser": "^1.15.0",
     "dragula": "^3.6.8",
     "express": "^4.13.4",
