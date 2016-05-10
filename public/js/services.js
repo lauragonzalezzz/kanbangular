@@ -40,9 +40,9 @@
 
       this.logout = function(){
         return $http.get('/logout')
-        // .then(function(){
-        //   this.isLoggedIn = false;
-        // })
+        .then(function(){
+          this.isLoggedIn = false;
+        })
       };
 
       this.login = function(user){

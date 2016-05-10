@@ -13,7 +13,9 @@
     <header>
       <h1 id="mainHeading">Kanbangular</h1>
       <div ng-controller="LoginController" class="loginNav">
+        <div>{{loginError}}</div>
         <a href="" class="navButtons animBtn themeA" id="logIn" ng-click="loginButton=true" ng-hide="initButton; loginButton; registerButton">Log In</a>
+        <div>{{registerError}}</div>
         <a href="" class="navButtons animBtn themeA" id="register" ng-click=" registerButton=true" ng-hide="registerButton; loginButton">Register</a>
         <a href="" class="navButtons animBtn themeA" id="logout" ng-click="logout(); showLogout=true" ng-hide="logOutButton">Logout</a>
 

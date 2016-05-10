@@ -11,7 +11,14 @@
     });
 
     $scope.addTask = function (task) {
+      if (task.status === null){
+        task.status = notStarted;
+      }
       if (LoginService.get() === true){
+        if (task.title === null ||
+        task.priority === null ||
+        task.dueDate === null ||
+        task.status === null)
         TaskService.addTask(task).success(function (response) {
            $scope.tasks = response.tasks;
         })
@@ -25,7 +32,7 @@
           });
         });
       }
-      else {
+      if (LoginService.get() === false){
         alert("Please log in to use this service");
       }
     };

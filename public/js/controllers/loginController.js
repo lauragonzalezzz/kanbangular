@@ -17,20 +17,28 @@
         });
       })
       .catch(function(){
-        alert('Invalid login credentials, please try again');
+        $scope.loginError = "Invalid username or password";
       });
     };
     $scope.register = function(newUser){
-      LoginService.register(newUser)
-      .then(function() {
-        Object.assign(user, {
-          username: "",
-          password: ""
+      if (newUser === undefined) {
+        return $scope.registerError = "Please enter username and password";
+      }
+      if (!newUser.username || !newUser.password){
+        return $scope.registerError = "Please try again";
+      }
+      else {
+        LoginService.register(newUser)
+        .then(function() {
+          Object.assign(user, {
+            username: "",
+            password: ""
+          });
+        })
+        .catch(function() {
+          $scope.registerError = "Please try again";
         });
-      })
-      .catch(function() {
-        alert("An error has occurred");
-      });
+      };
     };
 
   }]);
