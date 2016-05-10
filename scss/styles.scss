@@ -289,7 +289,6 @@ header{
 #board{
   display: flex;
   flex-flow: row nowrap;
-  align-items: flex-start;
 }
 
 .boardHeader{
@@ -320,21 +319,21 @@ header{
 
 #notStarted{
   // width: 365px;
-  height: 800px;
+  min-height: 800px;
   padding: 4%;
   background-color: #fff;
 }
 
 #inProgress{
   // width: 365px;
-  height: 800px;
+  min-height: 800px;
   padding: 4%;
   background-color: #fff;
 }
 
 #completed{
   // width: 365px;
-  height: 800px;
+  min-height: 800px;
   padding: 4%;
   background-color: #fff;
 }

@@ -244,8 +244,7 @@ header {
 
 #board {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: flex-start; }
+  flex-flow: row nowrap; }
 
 .boardHeader {
   height: 50px;
@@ -270,17 +269,17 @@ header {
   background-color: rgba(31, 210, 106, 0.7); }
 
 #notStarted {
-  height: 800px;
+  min-height: 800px;
   padding: 4%;
   background-color: #fff; }
 
 #inProgress {
-  height: 800px;
+  min-height: 800px;
   padding: 4%;
   background-color: #fff; }
 
 #completed {
-  height: 800px;
+  min-height: 800px;
   padding: 4%;
   background-color: #fff; }
 
