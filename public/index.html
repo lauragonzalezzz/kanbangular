@@ -20,7 +20,7 @@
           <form ng-show="loginButton">
             <label for="userName">Username:</label>
             <input type="text" id="userName" ng-model="login.userName">
-            <br> m
+            <br>
             <label for="password">Password:</label>
             <input type="password" id="password" ng-model="login.password">
             <br>
@@ -45,33 +45,34 @@
     <div ng-controller="tasksController">
       <div id="addNew">
         <form ng-show="show">
-          <fieldset>
-            <div>
-              <label for="Title">Task Title:</label>
-              <input type="text" id="Title" ng-model="newTask.title">
+          <fieldset id="addNewForm">
+            <p id="newTask">New Task</p>
+            <input class="taskInput" type="text" id="Title" ng-model="newTask.title" placeholder="Task Title">
+            <textarea class="taskInput taskDescription" rows="10" id="Description" ng-model="newTask.description" placeholder="Task Description"></textarea>
+            <input class="taskInput" type="text" id="dueDate" ng-model="newTask.dueDate" placeholder="Due Date">
+            <input class="taskInput" type="text" id="Priority" ng-model="newTask.priority" placeholder="Priority">
+            <div class="selectdiv">
+              <select ng-model="newTask.priority" required>
+                <option selected value="">Select Priority</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
             </div>
-            <div>
-              <label for="Description">Description:</label>
-              <input type="text" id="Description" ng-model="newTask.description">
+            <div class="selectdiv">
+              <select ng-model="newTask.status" required>
+                <option selected value="">Select Status</option>
+                <option value="notstarted">Not Started</option>
+                <option value="inprogress">In Progress</option>
+                <option value="completed">Completed</option>
+              </select>
             </div>
-            <div>
-              <label for="dueDate">Due Date:</label>
-              <input type="text" id="dueDate" ng-model="newTask.dueDate">
-            </div>
-            <div>
-              <label for="Priority">Priority</label>
-              <input type="text" id="Priority" ng-model="newTask.priority">
-            </div>
-            <div>
-              <label for="Status">Status:</label>
-              <input type="text" id="Status" ng-model="newTask.status" >
-            </div>
-            <div>
-              <button type="button" ng-click="show=false; addTask(newTask)">Submit</button>
-            </div>
+            <button type="button" ng-click="show=false; addTask(newTask)">Submit</button>
           </fieldset>
         </form>
-        <a href="" class="navButtons animBtn themeA"  ng-click="show=true" ng-hide="show">Add Task</a>
+        <a href="" class="navButtons animBtnB themeB"  ng-click="show=true" ng-hide="show">Add Task</a>
       </div>
 
       <div id="board">
