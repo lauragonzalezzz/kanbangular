@@ -94,7 +94,7 @@
               </div>
               <!-- Hidden Edit Form -->
               <form ng-show="showme">
-                <input type="hidden" id="{{ $index }}" ng-model="task.id">
+                <input type="hidden" ng-model="task.id" value="{{task.id}}">
                 <label for="title">Title:</label>
                 <input type="text" id="title" ng-model="task.title">
                 <br>
