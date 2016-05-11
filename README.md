@@ -41,10 +41,16 @@ $ node server.js
 ---
 Visit our live site [here](https://dry-caverns-85168.herokuapp.com/) or continue locally using the following instructions:
 1. If you are a first time user, click the orange *Registration* button to create an account, you will be automatically logged in.
+
 2. If you are a returning user, click the orange *Login* button and enter your username and password.
+
 3. Create a new task by clicking the green *Add Task* button, fill out each of the form fields, and click *Submit*. You will see your task add to the queue.
+
 4. Edit tasks by clicking the *pencil* icon.
+
 5. Delete tasks by clicking the *trash* icon.
+
 6. To change task status, drag the task card to the appropriate column.
+
 7. If you would like to logout, click the orange *Logout* button.
 
