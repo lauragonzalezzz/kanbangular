@@ -11,6 +11,7 @@ const express       = require('express'),
       LocalStrategy = require('passport-local').Strategy,
       session       = require('express-session'),
       bcrypt        = require('bcrypt');
+
 var env       = process.env.NODE_ENV || 'development';
 
 app.set('port', process.env.PORT || 3000);
@@ -34,6 +35,7 @@ else {
     secret : process.env.SECRET
   }));
 }
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(
@@ -69,6 +71,7 @@ passport.deserializeUser((user, done) => {
   return done(null, user);
 });
 
+//GET
 app.get('/api/tasks', (req, res) => {
   Tasks.findAll()
   .then((tasks) => {
@@ -93,6 +96,7 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+//POST
 app.post('/api/tasks', (req, res) => {
   Tasks.create({
     title: req.body.title,
@@ -127,7 +131,6 @@ function isAuthenticated(req,res,next){
 }
 
 app.post('/login', passport.authenticate('local'), (req, res) => {
-  console.log('all clear');
   res.send(req.body);
 });
 
@@ -148,6 +151,7 @@ app.post('/register', (req, res) => {
   });
 });
 
+//PUT
 app.put('/api/tasks', (req, res) => {
   Tasks.update({
     title: req.body.title,
@@ -180,7 +184,6 @@ app.put('/api/tasks', (req, res) => {
 });
 
 app.put('/api/status', (req, res) => {
-    console.log('inside put server')
   Tasks.update({
     status : req.body.newStatus
   }, {
@@ -206,6 +209,7 @@ app.put('/api/status', (req, res) => {
   });
 });
 
+//DELETE
 app.delete('/api/tasks', (req, res) => {
   console.log(req.body.id);
   Tasks.destroy({
@@ -232,6 +236,7 @@ app.delete('/api/tasks', (req, res) => {
   });
 });
 
+//Sync Database and Start Server
 db.sequelize.sync().then(function() {
   app.listen(app.get('port'), function(){
       console.log('Express server listening on port ' + app.get('port'));
