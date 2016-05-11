@@ -299,7 +299,7 @@ input[type="date"]:valid:before {
 
 #board {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   color: #32313B; }
 
 .boardHeader {
@@ -313,7 +313,8 @@ input[type="date"]:valid:before {
   background-color: #fff; }
 
 .statusWrap {
-  flex: 1 0 30%; }
+  flex: 1 1 33%;
+  margin: auto; }
 
 #status1 {
   color: #fff;
@@ -330,7 +331,8 @@ input[type="date"]:valid:before {
 #notStarted {
   min-height: 600px;
   padding: 4%;
-  background-color: #fff; }
+  background-color: #fff;
+  justify-content: center; }
 
 #inProgress {
   min-height: 600px;
@@ -343,10 +345,11 @@ input[type="date"]:valid:before {
   background-color: #fff; }
 
 .CARD {
-  width: 360px;
+  margin: auto;
+  width: 80%;
   height: auto;
   padding: 7px;
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   flex-flow: row nowrap;
   font-size: 12px;
@@ -359,7 +362,8 @@ input[type="date"]:valid:before {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
-  align-items: flex-start; }
+  align-items: flex-start;
+  height: 20px; }
 
 .saveOperator {
   width: auto;

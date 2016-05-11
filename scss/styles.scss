@@ -344,8 +344,9 @@ input[type="date"]:valid:before {
 
 #board{
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   color: #32313B;
+  // border: 1px solid green;
 }
 
 .boardHeader{
@@ -362,7 +363,9 @@ input[type="date"]:valid:before {
 }
 
 .statusWrap{
-  flex: 1 0 30%;
+  flex: 1 1 33%;
+  margin: auto;
+  // border: 1px solid hotpink;
 }
 
 #status1{
@@ -384,6 +387,9 @@ input[type="date"]:valid:before {
   min-height: 600px;
   padding: 4%;
   background-color: #fff;
+  // display: flex;
+  // flex-flow: row wrap;
+  justify-content: center;
 }
 
 #inProgress{
@@ -399,14 +405,17 @@ input[type="date"]:valid:before {
 }
 
 .CARD{
-  width: 360px;
+  // flex: 0 1 75%;
+  margin: auto;
+  width: 80%;
   height: auto;
   padding: 7px;
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   flex-flow: row nowrap;
   font-size: 12px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  // border: 2px solid purple;
 }
 
 .changeOperators{
@@ -417,6 +426,8 @@ input[type="date"]:valid:before {
   flex-flow: row nowrap;
   justify-content: flex-end;
   align-items: flex-start;
+  // border: 2px solid yellow;
+  height: 20px;
 }
 
 .saveOperator{
@@ -463,6 +474,7 @@ input[type="date"]:valid:before {
 .INFO{
   width: 75%;
   padding: 8px;
+  // border: 1px solid black;
 }
 
 #sideStatNotStarted{
