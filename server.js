@@ -10,18 +10,30 @@ const express       = require('express'),
       passport      = require('passport'),
       LocalStrategy = require('passport-local').Strategy,
       session       = require('express-session'),
-      CONFIG        = require('./config/config.json'),
       bcrypt        = require('bcrypt');
+var env       = process.env.NODE_ENV || 'development';
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json({ type: 'application/json' }));
-app.use(session({
-  resave: true,
-  saveUninitialized : true,
-  secret : CONFIG.Session.secret
-}));
+
+if ((env === "development") {
+  var CONFIG    = require(__dirname + '/config/config.json')[env];
+  app.use(session({
+    resave: true,
+    saveUninitialized : true,
+    secret : CONFIG.Session.secret
+  }));
+}
+else {
+  app.use(session({
+    resave: true,
+    saveUninitialized : true,
+    secret : process.env.SECRET
+  }));
+}
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(
