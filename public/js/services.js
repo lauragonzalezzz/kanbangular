@@ -1,5 +1,7 @@
 (function () {
   angular.module('app')
+
+  //TASK SERVICE
     .service('TaskService', ['$http', function($http){
 
       this.getTasks = function(){
@@ -15,7 +17,6 @@
       };
 
       this.deleteTask = function(task){
-        console.log('task',task);
         return $http({
           url: '/api/tasks',
           method: 'DELETE',
@@ -28,8 +29,9 @@
         return $http.put('/api/status', updateObj);
       }
 
-    }]) //end taskservice
+    }])
 
+  //LOGIN SERVICE
     .service('LoginService', ['$http', function($http){
 
       this.isLoggedIn = false;
@@ -75,7 +77,7 @@
         });
       };
 
+    }])
 
-    }]) //ends loginservice
 
 })();
