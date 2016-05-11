@@ -63,6 +63,7 @@
       };
 
       this.register = function(newUser){
+        var self = this;
         return $http.post('/register', newUser)
         .then(function(response){
           if (response.status === 200) {
