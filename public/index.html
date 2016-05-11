@@ -107,9 +107,17 @@
                 <label for="dueDate">Due Date:</label>
                 <input type="date" id="dueDate" ng-model="task.dueDate">
                 <br>
-                <label for="priority">Priority:</label>
-                <input type="text" id="priority" ng-model="task.priority">
-                <br>
+                <label for="selectdiv">Priority:</label>
+                <div class="selectdiv">
+                  <select ng-model="task.priority">
+                    <option selected>{{ task.priority }}</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
                 <input type="hidden" id="status" ng-model="task.status">
               </form>
               <div class="saveOperator">
@@ -135,7 +143,7 @@
                 <button class="deleteButton updateButton" ng-click="showme=false; deleteTask(task)" ng-hide="showme"><i class="fa fa-lg fa-trash-o" aria-hidden="true" id="inProgressIcon"></i></button>
               </div>
               <!-- Hidden Edit Form -->
-              <form ng-show="showme">
+              <form class="ipEditForm" ng-show="showme">
                 <input type="hidden" id="{{ $index }}" ng-model="task.id">
                 <label for="title">Title:</label>
                 <input type="text" id="title" ng-model="task.title">
@@ -151,7 +159,9 @@
                 <br>
                 <input type="hidden" id="status" ng-model="task.status">
               </form>
-              <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+              <div class="saveOperator">
+                <button class="saveButton updateButton" ng-click="showme=false; saveTask(task)" ng-show="showme"><i class="fa fa-lg fa-check" aria-hidden="true" id="inProgressIcon"></i></button>
+              </div>
             </div> <!-- card -->
           </div> <!-- notstarted -->
         </div>
@@ -189,7 +199,9 @@
                 <br>
                 <input type="hidden" id="status" ng-model="task.status">
               </form>
-              <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+              <div class="saveOperator">
+                <button class="saveButton updateButton" ng-click="showme=false; saveTask(task)" ng-show="showme"><i class="fa fa-lg fa-check" aria-hidden="true" id="completedIcon"></i></button>
+              </div>
             </div> <!-- card -->
           </div> <!-- notstarted -->
         </div>

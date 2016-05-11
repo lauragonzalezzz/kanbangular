@@ -378,6 +378,10 @@ input[type="date"]:valid:before {
   width: 80%;
   height: auto; }
 
+.ipEditForm {
+  width: 80%;
+  height: auto; }
+
 #inProgressIcon {
   color: #00CBE9;
   height: auto; }
