@@ -40,6 +40,7 @@ $ node server.js
 ## User Guide
 ---
 Visit our live site [here](https://dry-caverns-85168.herokuapp.com/) or continue locally using the following instructions:
+
 1. If you are a first time user, click the orange *Registration* button to create an account, you will be automatically logged in.
 
 2. If you are a returning user, click the orange *Login* button and enter your username and password.
