@@ -2,6 +2,7 @@
 
 (function(){
   angular.module('app')
+
   .controller("LoginController", ['$scope', 'LoginService', function($scope, LoginService){
 
     $scope.logout = function(user){
@@ -19,13 +20,13 @@
         });
       })
       .catch(function(err){
-        console.log(err);
         $scope.loginError = "Invalid username or password";
       });
     };
+
     $scope.register = function(newUser){
       if (newUser === undefined) {
-        return $scope.registerError = "Please enter username and password";
+        return $scope.registerError = "Please enter both username and password";
       }
       if (!newUser.username || !newUser.password){
         return $scope.registerError = "Please try again";
