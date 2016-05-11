@@ -10,7 +10,7 @@ var db        = {};
 if(process.env.hasOwnProperty('HEROKU_POSTGRESQL_BROWN_URL') ) {
   var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BROWN_URL);
 } else {
-  var config    = require(path.join(__dirname, '../config/config.json'))[env];
+  var config    = require(path.resolve(__dirname, '../config/config.json'))[env];
   var sequelize = new Sequelize(config.database, config.username, config.password, {
     host: 'localhost',
     dialect: 'postgres'
