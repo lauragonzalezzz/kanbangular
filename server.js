@@ -19,12 +19,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json({ type: 'application/json' }));
 
-if ((env === "development") {
-  var CONFIG    = require(__dirname + '/config/config.json')[env];
+if (env === "development") {
+  var CONFIG    = require(__dirname + '/config/config.json');
   app.use(session({
     resave: true,
     saveUninitialized : true,
-    secret : CONFIG.Session.secret
+    secret : CONFIG.session.secret
   }));
 }
 else {

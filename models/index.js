@@ -5,18 +5,16 @@ var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(module.filename);
 var env       = process.env.NODE_ENV || 'development';
-if (env === "development") {
-
-
-  var config    = require(path.join(__dirname, '/config/config.json'));
-}
-
 var db        = {};
 
 if(process.env.hasOwnProperty('HEROKU_POSTGRESQL_BROWN_URL') ) {
   var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BROWN_URL);
 } else {
- var sequelize = new Sequelize(config.database, config.username, config.password, config);
+  var config    = require(path.join(__dirname, '../config/config.json'))[env];
+  var sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: 'localhost',
+    dialect: 'postgres'
+  });
 }
 
 
