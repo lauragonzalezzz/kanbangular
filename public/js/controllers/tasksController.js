@@ -2,6 +2,7 @@
 
 (function(){
   angular.module('app')
+  // .constant('moment', moment)
   .controller('tasksController', ['$scope', 'TaskService', 'dragulaService', 'LoginService', function($scope, TaskService, dragulaService, LoginService){
 
   //Task Services
@@ -31,6 +32,7 @@
           if (task.status === undefined){
             task.status = notStarted;
           }
+          task.dueDate = moment(task.dueDate).format('dddd, MMMM, DD');
 
           TaskService.addTask(task).success(function (response) {
              $scope.tasks = response.tasks;

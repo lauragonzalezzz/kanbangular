@@ -53,7 +53,7 @@
             <p id="newTask">New Task</p>
             <input class="taskInput" type="text" id="Title" ng-model="newTask.title" placeholder="Task Title">
             <textarea rows="10" id="Description" ng-model="newTask.description" placeholder="Task Description"></textarea>
-            <input class="taskInput" type="date" id="dueDate" ng-model="newTask.dueDate" placeholder="Due Date">
+            <input type="date" placeholder="Due Date" class="taskInput" id="dueDate" ng-model="newTask.dueDate"/>
             <div class="selectdiv">
               <select ng-model="newTask.priority" required>
                 <option selected value="">Select Priority</option>
@@ -112,7 +112,9 @@
                 <br>
                 <input type="hidden" id="status" ng-model="task.status">
               </form>
-              <button class="saveButton" ng-click="showme=false; saveTask(task)" ng-show="showme">Save</button>
+              <div class="saveOperator">
+                <button class="saveButton updateButton" ng-click="showme=false; saveTask(task)" ng-show="showme"><i class="fa fa-lg fa-check" aria-hidden="true" id="notStartedIcon"></i></button>
+              </div>
             </div> <!-- card -->
           </div> <!-- notstarted -->
         </div>
@@ -199,6 +201,7 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
+  <script src="/lib/moment.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
   <script type="text/javascript" src="/js/dragula.js"></script>
   <script type="text/javascript" src="/js/app.js"></script>

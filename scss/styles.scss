@@ -40,16 +40,14 @@ header{
 .loginNav{
   height: inherit;
   display: flex;
-  flex-flow: row wrap;
-  margin-left: 50%;
+  // flex-flow: row wrap;
+  margin-left: 40%;
   padding-top: 0px;
-  float: right;
   z-index: 2;
 }
 
 
 #loginForm{
-  background-color: #CCCCCC;
   display: block;
   z-index: 2;
 }
@@ -201,11 +199,6 @@ header{
 }
 // ends addbutton styles
 
-
-.ng-scope{
-  width: 100%;
-}
-
 #tcontrol{
   display: flex;
   justify-content: center;
@@ -254,9 +247,14 @@ header{
   padding-left: 5px;
 }
 
-input[type=date]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    display: none;
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
 }
 
 .selectdiv {
@@ -414,6 +412,17 @@ input[type=date]::-webkit-inner-spin-button {
 .changeOperators{
   width: auto;
   padding: 5px;
+  float: right;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.saveOperator{
+  width: auto;
+  padding: 5px;
+  float: right;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
@@ -422,6 +431,11 @@ input[type=date]::-webkit-inner-spin-button {
 
 #notStartedIcon{
   color: #EC3F8C;
+  height: auto;
+}
+
+.nsEditForm{
+  width: 80%;
   height: auto;
 }
 
